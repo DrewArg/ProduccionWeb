@@ -1,0 +1,35 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    list-style: none;
+    
+}
+
+.FAQ__nav{
+    background-color: #fff59d;
+    
+}
+
+.FAQ__nav__item{
+    margin-top: .5rem;
+}
+
+
+.FAQ__nav__icons {
+    margin-left: 70rem;
+    margin-top: .2rem;
+}
+
+.FAQ__body h1 {
+    margin: 3rem;
+    font-weight: 500;
+}
+
+.FAQ__body article {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+body h1 img {
+    margin-bottom: .6rem;
+    margin-left: .2rem;
+}
