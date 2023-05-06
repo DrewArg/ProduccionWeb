@@ -69,3 +69,8 @@
     align-content: center;
     justify-content: space-between;
 }
+
+
+.index__nav{
+    background-color: #fff59d;
+}
