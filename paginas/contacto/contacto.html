@@ -19,11 +19,11 @@
 
     <title>Contacto</title>
 </head>
-<body class="container">
+<body>
 
     <header class="index_nav_color container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <div class="">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -66,80 +66,76 @@
 
 
 
-<div class="my-5 p-4 bg-danger">
+<div class="my-5 p-4 border border-black rounded-3 container ">
 
 
 
-    <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-4">
-          <label for="validationCustom01" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="validationCustom01" required>
-          <div class="valid-feedback">
-            Looks good!
+ <div class="col-12 mb-3">
+
+    <h2>Contacto</h2>
+
+ </div>
+
+
+
+
+
+    <form class="row g-4">
+
+
+
+
+        <div class="col-md-4 mb-3">
+
+            <label for="formGroupExampleInput" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre">
+          
+              
+         
+        </div>
+
+
+        <div class="col-md-4 mb-3">
+
+            <label for="formGroupExampleInput" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Apellido">
+          
+              
+         
+        </div>
+
+
+
+        <div class="col-md-4 mb-3">
+
+            <label for="formGroupExampleInput" class="form-label">Email</label>
+            <input type="email" class="form-control" id="formGroupExampleInput" placeholder="ejemplo@ejemplo.com">
+          
+              
+         
+        </div>
+
+
+
+
+
+
+        <div class="col-md-12">
+
+            <label for="exampleFormControlTextarea1" class="form-label fs-4">En que podemos ayudarte?</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+
+        </div>
+     
+
+
+
+
+        <div class="col-12 text-center">
+            <button class="btn btn-primary" type="submit">Submit form</button>
           </div>
-        </div>
-        <div class="col-md-4">
-          <label for="validationCustom02" class="form-label">Apellido</label>
-          <input type="text" class="form-control" id="validationCustom02" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-md-4">
-          <label for="validationCustomUsername" class="form-label">Username</label>
-          <div class="input-group has-validation">
-            <span class="input-group-text" id="inputGroupPrepend">@</span>
-            <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-            <div class="invalid-feedback">
-              Please choose a username.
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <label for="validationCustom03" class="form-label">City</label>
-          <input type="text" class="form-control" id="validationCustom03" required>
-          <div class="invalid-feedback">
-            Please provide a valid city.
-          </div>
-        </div>
-        <div class="col-md-3">
-          <label for="validationCustom04" class="form-label">State</label>
-          <select class="form-select" id="validationCustom04" required>
-            <option selected disabled value="">Choose...</option>
-            <option>...</option>
-          </select>
-          <div class="invalid-feedback">
-            Please select a valid state.
-          </div>
-        </div>
-        <div class="col-md-3">
-          <label for="validationCustom05" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="validationCustom05" required>
-          <div class="invalid-feedback">
-            Please provide a valid zip.
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-            <label class="form-check-label" for="invalidCheck">
-              Agree to terms and conditions
-            </label>
-            <div class="invalid-feedback">
-              You must agree before submitting.
-            </div>
-          </div>
-        </div>
-        <div class="col-12">
-          <button class="btn btn-primary" type="submit">Submit form</button>
-        </div>
-      </form>
-
-
-
-
-
-
+        
 
 
 
