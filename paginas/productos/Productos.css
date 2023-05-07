@@ -1,21 +1,7 @@
-* {
-    font-family: 'Roboto', sans-serif;
-    list-style: none;
-
-}
-
 .separador2 {
     border: solid #039be5 1px;
     margin: 2rem;
 }
-
-.nav-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    min-width: 100%
-}
-
 
 
 /*  Productos */

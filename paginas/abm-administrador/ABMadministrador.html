@@ -33,7 +33,8 @@
                                     href="/paginas/productos/Productos.html">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link nav__global__item" href="/paginas/contacto/contacto.html">Contacto</a>
+                                <a class="nav-link nav__global__item"
+                                    href="/paginas/contacto/contacto.html">Contacto</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav__global__item" href="/paginas/FAQ/FAQ.html">FAQ</a>
@@ -41,10 +42,12 @@
                         </ul>
                         <ul class="navbar-nav mr-auto mb-2 mb-lg-0  nav__global__icons d-flex">
                             <li class="nav-item">
-                                <a class="nav-link" href="/paginas/perfil/Perfil.html"><img src="/public/iconos/usuario.png" alt=""></a>
+                                <a class="nav-link" href="/paginas/perfil/Perfil.html"><img
+                                        src="/public/iconos/usuario.png" alt=""></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/paginas/carrito/Carrito.html"><img src="/public/iconos/carrito-de-compras.png" alt=""></a>
+                                <a class="nav-link" href="/paginas/carrito/Carrito.html"><img
+                                        src="/public/iconos/carrito-de-compras.png" alt=""></a>
                             </li>
                         </ul>
                     </div>
@@ -56,33 +59,186 @@
     <main>
         <div class="ticket">
             <div class="ticket-table">
+                <div class="titulo-tabla">
+                    <h3>Usuarios</h3>
+                    <img src="/public/iconos/plus.png" alt="plus to add item">
+                </div>
                 <table class="table table-light table-striped">
                     <thead>
                         <tr>
                             <th scope="col">idUsuario</th>
-                            <th scope="col">Titulo</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Valor Unitario</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Tipo Usuario</th>
+                            <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
                         <tr>
                             <th scope="row">1</th>
                             <td>Lorem</td>
-                            <td><span>-</span> 1 <span>+</span></td>
-                            <td>1500</td>
+                            <td>Lorem@mail.com</td>
+                            <td>Avenida Siempre Viva 742</td>
+                            <td>11111111111</td>
+                            <td>Cliente</td>
+                            <td><img class="edit-delete-icons" src="/public/iconos/edit.png" alt="pencil to edit"> <img
+                                    class="edit-delete-icons" src="/public/iconos/delete.png" alt="trash can to delete">
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td>Lorem</td>
-                            <td><span>-</span> 2 <span>+</span></td>
-                            <td>1000</td>
+                            <td>Lorem@mail.com</td>
+                            <td>Avenida Siempre Viva 742</td>
+                            <td>11111111111</td>
+                            <td>Cliente</td>
+                            <td><img class="edit-delete-icons" src="/public/iconos/edit.png" alt="pencil to edit"> <img
+                                    class="edit-delete-icons" src="/public/iconos/delete.png" alt="trash can to delete">
+                            </td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
                             <td>Lorem</td>
-                            <td><span>-</span> 3 <span>+</span></td>
+                            <td>Lorem@mail.com</td>
+                            <td>Avenida Siempre Viva 742</td>
+                            <td>11111111111</td>
+                            <td>Admin</td>
+                            <td><img class="edit-delete-icons" src="/public/iconos/edit.png" alt="pencil to edit"> <img
+                                    class="edit-delete-icons" src="/public/iconos/delete.png" alt="trash can to delete">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="titulo-tabla">
+                    <h3>Productos</h3>
+                    <img src="/public/iconos/plus.png" alt="plus to add item">
+                </div>
+                <table class="table table-light table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">idProducto</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Sinopsis</th>
+                            <th scope="col">Stock</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Género</th>
+                            <th scope="col">Editorial</th>
+                            <th scope="col">Tipo Producto</th>
+                            <th scope="col">Imágen</th>
+                            <th scope="col">Puntuación</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Lorem</td>
+                            <td>Lorem ipsum dolor.</td>
+                            <td>15</td>
                             <td>2000</td>
+                            <td>Agatha Christy</td>
+                            <td>Acción</td>
+                            <td>XXXXX</td>
+                            <td>Físico</td>
+                            <td>img</td>
+                            <td>4.5</td>
+                            <td class="acciones"><img class="edit-delete-icons" src="/public/iconos/edit.png"
+                                    alt="pencil to edit"> <img class="edit-delete-icons" src="/public/iconos/delete.png"
+                                    alt="trash can to delete">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Lorem</td>
+                            <td>Lorem ipsum dolor.</td>
+                            <td>15</td>
+                            <td>2000</td>
+                            <td>Agatha Christy</td>
+                            <td>Acción</td>
+                            <td>XXXXX</td>
+                            <td>Audio Libro</td>
+                            <td>img</td>
+                            <td>4.5</td>
+                            <td class="acciones"><img class="edit-delete-icons" src="/public/iconos/edit.png"
+                                    alt="pencil to edit"> <img class="edit-delete-icons" src="/public/iconos/delete.png"
+                                    alt="trash can to delete">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Lorem</td>
+                            <td>Lorem ipsum dolor.</td>
+                            <td>15</td>
+                            <td>2000</td>
+                            <td>Agatha Christy</td>
+                            <td>Acción</td>
+                            <td>XXXXX</td>
+                            <td>Físico</td>
+                            <td>img</td>
+                            <td>4.5</td>
+                            <td class="acciones"><img class="edit-delete-icons" src="/public/iconos/edit.png"
+                                    alt="pencil to edit"> <img class="edit-delete-icons" src="/public/iconos/delete.png"
+                                    alt="trash can to delete">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="titulo-tabla">
+                    <h3>Revisiones</h3>
+                    <img src="/public/iconos/plus.png" alt="plus to add item">
+                </div>
+                <table class="table table-light table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">idRevision</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Puntuación</th>
+                            <th scope="col">idUsuario</th>
+                            <th scope="col">idProducto</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Lorem</td>
+                            <td>Lorem ipsum dolor.</td>
+                            <td>4.5</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td class="acciones"><img class="edit-delete-icons" src="/public/iconos/edit.png"
+                                    alt="pencil to edit"> <img class="edit-delete-icons" src="/public/iconos/delete.png"
+                                    alt="trash can to delete">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Lorem</td>
+                            <td>Lorem ipsum dolor.</td>
+                            <td>4.5</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td class="acciones"><img class="edit-delete-icons" src="/public/iconos/edit.png"
+                                    alt="pencil to edit"> <img class="edit-delete-icons" src="/public/iconos/delete.png"
+                                    alt="trash can to delete">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Lorem</td>
+                            <td>Lorem ipsum dolor.</td>
+                            <td>4.5</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td class="acciones"><img class="edit-delete-icons" src="/public/iconos/edit.png"
+                                    alt="pencil to edit"> <img class="edit-delete-icons" src="/public/iconos/delete.png"
+                                    alt="trash can to delete">
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -92,6 +248,12 @@
     </main>
     <footer>
         <a href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by Zlatko Najdenovski -
+            Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/edit" title="edit icons">Edit icons created by Kiranshastry -
+            Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/delete" title="delete icons">Delete icons created by Kiranshastry -
+            Flaticon</a>
+        <a href="https://www.flaticon.com/free-icons/plus" title="plus icons">Plus icons created by Freepik -
             Flaticon</a>
     </footer>
 </body>

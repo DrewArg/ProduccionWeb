@@ -1,30 +1,3 @@
-* {
-    font-family: 'Roboto', sans-serif;
-    list-style: none;
-    
-}
-
-.nav-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    min-width: 100%
-}
-
-.FAQ__nav{
-    background-color: #fff59d;
-    
-}
-
-.FAQ__nav__item{
-    margin-top: .5rem;
-}
-
-
-.FAQ__nav__icons {
-    margin-left: 70rem;
-    margin-top: .2rem;
-}
 
 .FAQ__body h1 {
     margin: 3rem;

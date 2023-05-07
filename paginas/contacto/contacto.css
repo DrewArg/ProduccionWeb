@@ -1,20 +1,3 @@
-.index_nav_color{
-    background-color: #fff59d;
-}
-
-.nav-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    min-width: 100%
-}
-
-* {
-    font-family: 'Roboto', sans-serif;
-    list-style: none;
-
-}
-
 
 * {
     margin: 0;
