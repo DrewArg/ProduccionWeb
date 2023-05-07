@@ -62,103 +62,108 @@
     </header>
 
     <main>
-        <div class="contenedor">
-            <div class="columna">
-                <div class="container-img">
-                    <img class="cristy1" src="/public/imagenes/libro.png" alt="">
-                </div>
-            </div>
-            <div class="columna">
-                <div class="fila">
-                    <div class="subcolumna">
-                        <div class="container-info-product">
 
-                            <div class="container-tipo">
-                                <p>Titulo</p>
-                                <div class="form-tipo">
-                                    <label for="tipo"></label>
-                                    <select name="tipo" id="">
-                                        <option disabled selected value="">
-                                            Elegi el tipo
-                                        </option>
-                                        <option value="fisico">Fisico</option>
-                                        <option value="digital">Digital</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="container-autor">
-                                <span>Autor: Agatha Cristie</span>
-                            </div>
-                            <div class="container-editorial">
-                                <span>Editorial: Booket</span>
-                            </div>
-                            <div class="container-genero">
-                                <span>Genero:Policial</span>
-                            </div>
-                            <div class="container-details-product">
-                                <div class="form-group">
-                                    <label for="cantidad">Cantidad</label>
-                                    <select name="cant" id="">
-                                        <option disabled selected value="">
-                                            Elegi cantidad
-                                        </option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+
+
+        <div class="card my-3 container py-2">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/public/imagenes/libro.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body row">
+
+                    <div class="row">
+
+                    <div class="col-6 mb-3">
+
+                        <h5 class="card-title">Titulo de libro</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, nemo pariatur consectetur quisquam dolorum minus tempora vero, ratione maxime placeat molestias, quis consequatur.</p>
                     </div>
 
-                    <div class="subcolumna">
-                        <div class="container-price">
-                            <span>$2500</span>
-                            <i class="fa-solid fa-chevron-right"></i>
-                            <div class="container-add-cart">
-                                <button class="btn-add-to-cart">
-                                    <i class="fa-solid
-                                    fa-plus"></i>
-                                    Añadir al carrito
-                                </button>
+                      
+                    
+                    <div class="col-6 mb-3">
+      
+                              <select class="form-select mb-3" aria-label="Default select example">
+                                  <option selected>Formato</option>
+                                  <option value="1">Fisico</option>
+                                  <option value="2">Digital</option>
+                                </select> 
+
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Cantidad</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                  </select> 
+         
+                    </div
+
+
+                    <div class="col-6 mb-3">
+
+                        <hr>
+                        <h3>Detalle</h3>
+
+                        <span>Autor: Agatha Cristie</span>
+                        <span>Editorial: Booket</span>
+                        <span>Genero:Policial</span>
+                    </div
+
+
+                    <div class="col-12 mb-3">
+
+                        <hr>
+                        <h3>Reviews</h3>
+
+                        
+                        <div class="card mb-3">
+                            <div class="card-header">
+                              Quote
                             </div>
+                            <div class="card-body">
+                              <blockquote class="blockquote mb-0">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <footer class="blockquote-footer">Un usuario <cite title="Source Title">NombreUsuario</cite></footer>
+                              </blockquote>
+                            </div>
+                          </div>
+
+
+                          <div class="card mb-3">
+                            <div class="card-header">
+                              Quote
+                            </div>
+                            <div class="card-body">
+                              <blockquote class="blockquote mb-0">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                <footer class="blockquote-footer">Un usuario <cite title="Source Title">NombreUsuario</cite></footer>
+                              </blockquote>
+                            </div>
+                          </div>
+
+
+
+                    </div
+                   
+               
+
+
                         </div>
-                    </div>
+                  
+
+                
+
+
                 </div>
-                <div class="fila">
-                    <div class="container-descripcion">
-                        <div class="title-description">
-                            <h4>Descripcion</h4>
-                            <i class="fa solid 
-        fa-chevron-down"></i>
-                        </div>
-                        <div class="text-descripcion">
-                            <p>
-                                Un grupo de viajeros se ven atrapados en el Orient Express en plena tormenta de nieve.
-                                Entre
-                                ellos pronto se descubre un cadáver. El asesino tiene que ser uno de los presentes. Al
-                                detective más famoso de la historia le corresponde averiguar quién ha cometido el
-                                crimen.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- <div class="container-leer-parrafo">
-    <div class="title-leer-parrafo">
-        <h4>Leer parrafo</h4>
-        <i class="fa solid 
-        fa-chevron-down"></i>
-    </div>
-    <div class="text-leer-parrafo">
-        <a
-            href="https://planetadelibrosar0.cdnstatics.com/libros_contenido_extra/48/47746_TPCW_Asesinato%20en%20el%20Orient%20express.pdf">Leer
-            fragmento</a>
-    </div>
-</div> -->
-                </div>
+              </div>
             </div>
-        </div>
+          </div>
+
+
+
+
+      
     </main>
 
     <script src="https://kit.fontawesome.com/28aeac4d82.js" crossorigin="anonymous"></script>
