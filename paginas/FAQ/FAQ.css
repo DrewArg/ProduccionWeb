@@ -4,6 +4,13 @@
     
 }
 
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 100%
+}
+
 .FAQ__nav{
     background-color: #fff59d;
     

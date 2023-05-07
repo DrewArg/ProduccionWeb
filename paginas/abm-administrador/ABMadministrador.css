@@ -1,11 +1,12 @@
+
+.index__nav{
+    background-color: #fff59d;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
     list-style: none;
 
-}
-
-.index_nav_color{
-    background-color: #fff59d;
 }
 
 .nav-container{
@@ -13,9 +14,4 @@
     flex-direction: row;
     justify-content: space-between;
     min-width: 100%
-}
-
-
-* {
-    margin: 0;
 }

@@ -13,6 +13,7 @@
 
     <!-- CSS  -->
     <link rel="stylesheet" href="FAQ.css">
+    <link rel="stylesheet" href="/style.css">
 
     <!--FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +24,7 @@
 
 <body class="FAQ__body">
 
-    <header class="FAQ__nav">
+    <header class="nav__global">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -32,37 +33,36 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="d-flex justify-content-evenly">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <div class="nav__global__container">
+                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../../index.html"><img
-                                        src="../../public/iconos/libro-abierto.png" alt=""></a>
+                                <a class="nav-link active" aria-current="page" href="/index.html"><img
+                                        src="/public/iconos/libro-abierto.png" alt=""></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link FAQ__nav__item" href="../productos/Productos.html">Productos</a>
+                                <a class="nav-link nav__global__item"
+                                    href="/paginas/productos/Productos.html">Productos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link FAQ__nav__item" href="">Contactos</a>
+                                <a class="nav-link nav__global__item" href="/paginas/contacto/contacto.html">Contactos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link FAQ__nav__item" href="">FAQ</a>
+                                <a class="nav-link nav__global__item" href="/paginas/FAQ/FAQ.html">FAQ</a>
                             </li>
                         </ul>
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0  FAQ__nav__icons d-flex">
-
+                        <ul class="navbar-nav mr-auto mb-2 mb-lg-0  nav__global__icons d-flex">
                             <li class="nav-item">
-                                <a class="nav-link" href=""><img src="../../public/iconos/usuario.png" alt=""></a>
+                                <a class="nav-link" href="/paginas/perfil/Perfil.html"><img src="/public/iconos/usuario.png" alt=""></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href=""><img src="../../public/iconos/carrito-de-compras.png"
-                                        alt=""></a>
+                                <a class="nav-link" href="/paginas/carrito/Carrito.html"><img src="/public/iconos/carrito-de-compras.png" alt=""></a>
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </div>
         </nav>
+
     </header>
 
     <h1 class="display-4 "> <img src="../../public/iconos/informacion.png" alt=""> Preguntas frecuentes </h1>
