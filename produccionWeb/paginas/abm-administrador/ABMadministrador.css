@@ -1,0 +1,32 @@
+.edit-delete-icons {
+    width: 25px;
+    height: 25px;
+    margin-right: 1em;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.acciones {
+    display: flex;
+    flex-direction: row;
+}
+
+.titulo-tabla{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1em;
+    margin-top: 2em;
+}
+
+.titulo-tabla img{
+    width: 25px;
+    height: 25px;
+    margin-left: 1em;
+    margin-bottom: .5em;
+    &:hover{
+        cursor: pointer;
+    }
+}

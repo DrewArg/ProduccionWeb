@@ -1,0 +1,35 @@
+.separador2 {
+    border: solid #039be5 1px;
+    margin: 2rem;
+}
+
+
+/*  Productos */
+
+.productos__body h1{
+    margin: 3rem;
+}
+.productos__body article{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.productos__section__cards{
+    padding-top: 1rem;
+    
+    
+}
+
+
+.productos__section__cards__p1{
+    padding-right: 12rem ;
+    padding-left: 1rem;
+    position: absolute;
+}
+.productos__section__cards__p1 p {
+    margin: 0;
+    padding: 1rem;
+}
+.productos__section__cards__p2{
+    margin-left: 20rem;
+}
