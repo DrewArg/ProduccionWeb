@@ -2,18 +2,15 @@
 <html lang="es">
 
 <head>
-       <link rel="stylesheet" href="/produccionWeb/old/style.css">
-    <link rel="stylesheet" href="/produccionWeb/old/index.css">
+{{--       <link rel="stylesheet" href="/produccionWeb/old/style.css">--}}
+{{--    <link rel="stylesheet" href="/produccionWeb/old/index.css">--}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap" rel="stylesheet">
 
-
     <title>Libreria</title>
-
-
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +25,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
 
 </head>
 
@@ -46,7 +43,8 @@
                         <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="index.html"><img
-                                        src="public/iconos/libro-abierto.png" alt=""></a>
+
+                                        src="{{ URL::to('/') }}/iconos/libro-abierto.png" alt=""></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link nav__global__item"
@@ -61,10 +59,10 @@
                         </ul>
                         <ul class="navbar-nav mr-auto mb-2 mb-lg-0  nav__global__icons d-flex">
                             <li class="nav-item">
-                                <a class="nav-link" href="paginas/perfil/Perfil.html"><img src="public/iconos/usuario.png" alt=""></a>
+                                <a class="nav-link" href="paginas/perfil/Perfil.html"><img src="{{ URL::to('/') }}/iconos/usuario.png" alt=""></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="paginas/carrito/Carrito.html"><img src="public/iconos/carrito-de-compras.png" alt=""></a>
+                                <a class="nav-link" href="paginas/carrito/Carrito.html"><img src="{{ URL::to('/') }}/iconos/carrito-de-compras.png" alt=""></a>
                             </li>
                         </ul>
                     </div>
