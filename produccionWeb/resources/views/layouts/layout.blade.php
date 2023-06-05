@@ -85,7 +85,7 @@
 <nav class="navbar navbar-expand-lg ">
   <div class="container">
 
-    <a class="navbar-brand fs-1" href="./index.php">Book Zone</a>
+    <a class="navbar-brand fs-1 text-center" href="./index.php">Book Zone</a>
    
 
 
@@ -134,14 +134,12 @@
     </div>
 
 
-    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
+     
 
     </div>
 
 
-<div>
+<div class="align-item-center">
   <p class="">
     <a class="nav-link d-inline" href="{{ route('register') }}">{{ __('Crear cuenta') }}</a>
     <span>|</span>
@@ -155,6 +153,10 @@
   
   </div>
 </div>
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
 
   </div>
 </nav>
