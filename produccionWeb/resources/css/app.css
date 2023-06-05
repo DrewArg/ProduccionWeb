@@ -1,5 +1,20 @@
 
+* {
+    margin: 0;
+  }
+  
+  
+  html {
+    scroll-behavior: smooth;
+  }
 
+
+  
+.margin__top{
+
+    margin-top: 180px;
+  }
+  
 .index__article__section1__titulo {
     margin-left: 2rem;
     margin-right: 2rem;
@@ -73,3 +88,10 @@
     min-width: 100%
 }
 
+
+
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
