@@ -311,7 +311,7 @@
 </div>
 
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4 mx-5">
     
   <div class="col-4">
   <a href="nav-link" style="text-decoration: none;">
