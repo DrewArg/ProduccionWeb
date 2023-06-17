@@ -19,6 +19,7 @@ class Producto extends Model
       'editorial',
       'tipo_producto',
       'imagen',
-      'puntuacion'
+      'puntuacion',
+      'lenguaje'
     ];
 }

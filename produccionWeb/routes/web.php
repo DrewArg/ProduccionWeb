@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('productos',[
+Route::get('/productos',[
     ProductoController::class, 'index'
 ])->name('productos.index');
 

@@ -12,7 +12,9 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::all();
-        return $productos;
+        return view('productos.index',[
+        'productos'=>$productos
+        ]);
     }
 
     public function show(Producto $producto)

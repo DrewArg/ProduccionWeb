@@ -23,6 +23,7 @@ return new class extends Migration
             $table->enum('tipo_producto',['fisico','audio_libro'])->nullable(false);
             $table->string('imagen')->nullable(true);
             $table->float('puntuacion')->default(0.0);
+            $table->string('lenguaje',50)->nullable(false);
             $table->timestamps();
         });
     }

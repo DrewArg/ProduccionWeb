@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    
+
     <!-- <header class="nav__global">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
@@ -68,10 +68,10 @@
 
 <div class="border-bottom">
   <div class="container d-flex justify-content-between align-items-center py-1">
-    
+
       <h1 class="fs-6 align-self-center my-0">Buenos Aires | WhatsApp 011-15-11111111 | Mail ejemplo@ejemplo.com</h1>
-      
-    <div class="d-flex"> 
+
+    <div class="d-flex">
     <i class="fa-solid fa-globe align-self-center fa-lg me-2"></i>
       <select class="form-select" aria-label="Default select example">
         <option selected value="1">Español</option>
@@ -85,8 +85,8 @@
 <nav class="navbar navbar-expand-lg ">
   <div class="container">
 
-    <a class="navbar-brand fs-1 text-center" href="./index.php">Book Zone</a>
-   
+    <a class="navbar-brand fs-1 text-center" href="/index.php">Book Zone</a>
+
 
 
     <div class="">
@@ -95,46 +95,46 @@
         <input class="form-control me-2" type="search" placeholder="Buscar producto..." aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
-    
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="./index.php">Inicio</a>
+          <a class="nav-link" aria-current="page" href="/index.php">Inicio</a>
         </li>
-        
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Productos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="../pages/productos.php">Todos los productos</a></li>
+            <li><a class="dropdown-item" href="{{route('productos.index')}}">Todos los productos</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        
+
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="./quienes_somos.php">FAQ</a>
+          <a class="nav-link" aria-current="page" href="/faq.php">FAQ</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="./quienes_somos.php">Contacto</a>
+          <a class="nav-link" aria-current="page" href="/contacto.php">Contacto</a>
         </li>
-      
-    
+
+
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="./quienes_somos.php">Quienes somos?</a>
+          <a class="nav-link" aria-current="page" href="/quienes_somos.php">Quienes somos?</a>
         </li>
 
       </ul>
-     
+
     </div>
 
 
-     
+
 
     </div>
 
@@ -188,13 +188,13 @@
   <div class="d-flex justify-content-center">
 
   <a href="../pages/carrito.php" class="nav-link"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
-  
+
   </div>
 </div>
 
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button> 
+    </button>
 
   </div>
 </nav>
@@ -225,7 +225,7 @@
 <div class="row d-flex justify-content-between">
 
 <div class="col-5 row">
-    
+
 
 
 <div class="col-5">
@@ -337,16 +337,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-     CSRF Token 
+     CSRF Token
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    Fonts 
+    Fonts
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-   Scripts 
+   Scripts
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -361,14 +361,14 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                     Left Side Of Navbar 
+                     Left Side Of Navbar
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
-                  Right Side Of Navbar 
+                  Right Side Of Navbar
                     <ul class="navbar-nav ms-auto">
-                      Authentication Links 
+                      Authentication Links
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -410,5 +410,5 @@
         </main>
     </div>
 </body>
-</html> 
+</html>
 -->
