@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Models\Producto;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +20,14 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('productos',[
+    ProductoController::class, 'index'
+])->name('productos.index');
+
+/**
+ACTUALIZACION DE PRODUCTO
+ */
+
 Route::get('/test/{id}', function(int $id){
     $producto = Producto::find($id);
 //    $producto->precio = 1234.0;
@@ -29,10 +37,17 @@ Route::get('/test/{id}', function(int $id){
     return $producto;
 });
 
-//Route::get('/test/{id}', function(int $id){
-//   $producto = Producto::find($id);
-//   return $producto;
-//});
+/**
+OBTENER PRODUCTO POR ID
+ */
+Route::get('/test/{id}', function(int $id){
+   $producto = Producto::find($id);
+   return $producto;
+});
+
+/**
+CREACION DE PRODUCTO
+ */
 
 Route::get('/test',function (){
    $producto = Producto::create([
