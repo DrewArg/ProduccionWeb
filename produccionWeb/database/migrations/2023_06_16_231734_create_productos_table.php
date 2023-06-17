@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('imagen')->nullable(true);
             $table->float('puntuacion')->default(0.0);
             $table->string('lenguaje',50)->nullable(false);
+            $table->boolean('es_activo')->default(true);
             $table->timestamps();
         });
     }

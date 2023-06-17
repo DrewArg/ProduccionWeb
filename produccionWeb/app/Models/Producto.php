@@ -20,6 +20,7 @@ class Producto extends Model
       'tipo_producto',
       'imagen',
       'puntuacion',
-      'lenguaje'
+      'lenguaje',
+      'es_activo'
     ];
 }
