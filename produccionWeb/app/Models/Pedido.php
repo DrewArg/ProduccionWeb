@@ -17,5 +17,5 @@ class Pedido extends Model
         'producto_id',
         'user_id',
         'editorial',
-           ];
+        ];
 }

@@ -35,10 +35,11 @@
 
                                     <hr>
                                     <h3>Detalle</h3>
-
-                                    <span>Autor: {{$producto->autor}}</span>
-                                    <span>Editorial: {{$producto->editorial}}</span>
-                                    <span>Genero: {{$producto->genero}}</span>
+                                    <ul>
+                                        <li>Autor: {{$producto->autor}}</li>
+                                        <li>Editorial: {{$producto->editorial}}</li>
+                                        <li>Género: {{$producto->genero}}</li>
+                                    </ul>
                                 </div>
                                 <div class="col-12 mb-3">
                                     <hr>
