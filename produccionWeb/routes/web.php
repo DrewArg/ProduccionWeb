@@ -24,6 +24,10 @@ Route::get('/productos',[
     ProductoController::class, 'index'
 ])->name('productos.index');
 
+Route::get('/productos/{producto}',[
+    ProductoController::class, 'show'
+])->name('productos.show');
+
 /**
 ACTUALIZACION DE PRODUCTO
  */

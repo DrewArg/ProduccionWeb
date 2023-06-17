@@ -19,7 +19,9 @@ class ProductoController extends Controller
 
     public function show(Producto $producto)
     {
-
+        return view('productos.detalle_producto', [
+            'producto'=>$producto
+        ]);
     }
 
 
