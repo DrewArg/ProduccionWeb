@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up():void
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
@@ -14,12 +17,21 @@ return new class extends Migration
             $table->date('fecha_compra')->nullable(false);
             $table->date('fecha_entrega')->nullable(true);
             $table->integer('cantidad_productos')->nullable(false);
-            $table->foreignId('id_producto')->nullable(false);
-            $table->foreignId('id_usuario')->nullable(false);
+            //foreign key
+            $table->unsignedBigInteger('producto_id');
+            $table->foreign('producto_id')->references('id')->on('productos');
+            //foreign key
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->timestamps();
         });
     }
-        public function down():void
-        {
-            Schema::dropIfExists('pedidos');
-        }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('pedidos');
+    }
 };

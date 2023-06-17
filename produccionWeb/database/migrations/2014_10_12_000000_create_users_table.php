@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('telefono')->nullable(true);
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('tipo_usuario')->default(false);
+            //un usuario puede ter mas de una revision
+            //TODO VER SI ESTA TABLA TIENE QUE TENER CONEXION ACA CON REVISIONES. LA PUNTUACION DEBERIA EXTRAERSE DE LA REVISION
             $table->rememberToken();
             $table->timestamps();
         });

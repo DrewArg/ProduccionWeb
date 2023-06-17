@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pregunta;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Producto;
 
-class ProductoController extends Controller
+class PreguntaController extends Controller
 {
-    //accion principal de este cnotrller
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $productos = Producto::all();
-        return view('productos.index',[
-        'productos'=>$productos
-        ]);
+        //
     }
 
     /**
@@ -32,17 +32,18 @@ class ProductoController extends Controller
         //
     }
 
-    public function show(Producto $producto)
+    /**
+     * Display the specified resource.
+     */
+    public function show(Pregunta $pregunta)
     {
-        return view('productos.detalle_producto', [
-            'producto'=>$producto
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Producto $producto)
+    public function edit(Pregunta $pregunta)
     {
         //
     }
@@ -50,7 +51,7 @@ class ProductoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Producto $producto)
+    public function update(Request $request, Pregunta $pregunta)
     {
         //
     }
@@ -58,10 +59,8 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Producto $producto)
+    public function destroy(Pregunta $pregunta)
     {
         //
     }
-
-
 }

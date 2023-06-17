@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('editorial',50)->nullable(false);
             $table->enum('tipo_producto',['fisico','audio_libro'])->nullable(false);
             $table->string('imagen')->nullable(true);
+            //1 producto puede tener mas de 1 revision
+            //TODO VER SI ESTA TABLA TIENE QUE TENER CONEXION ACA CON REVISIONES. LA PUNTUACION DEBERIA EXTRAERSE DE LA REVISION
             $table->float('puntuacion')->default(0.0);
             $table->string('lenguaje',50)->nullable(false);
             $table->boolean('es_activo')->default(true);

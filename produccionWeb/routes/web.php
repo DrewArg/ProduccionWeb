@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\PedidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,9 @@ Route::get('/productos',[
 Route::get('/productos/{producto}',[
     ProductoController::class, 'show'
 ])->name('productos.show');
+
+//crea todas las rutas con sus respectivos nombres
+Route::resource('pedidos',PedidoController::class);
 
 ///**
 //ACTUALIZACION DE PRODUCTO
