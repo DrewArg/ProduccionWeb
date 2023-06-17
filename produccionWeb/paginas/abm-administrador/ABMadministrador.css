@@ -3,11 +3,13 @@
     height: 25px;
     margin-right: 1em;
 
-    &:hover {
-        cursor: pointer;
-    }
+
 }
 
+
+.edit-delete-icons:hover{
+     cursor: pointer;
+}
 .acciones {
     display: flex;
     flex-direction: row;
@@ -26,7 +28,9 @@
     height: 25px;
     margin-left: 1em;
     margin-bottom: .5em;
-    &:hover{
-        cursor: pointer;
-    }
+
+}
+
+.titulo-tabla img:hover{
+     cursor: pointer;
 }
