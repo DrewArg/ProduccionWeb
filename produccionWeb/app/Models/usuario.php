@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Usuario extends Model
 {
-    
+
     static $rules = [
 		'nombre' => 'required',
 		'apellido' => 'required',
@@ -28,7 +28,7 @@ class Usuario extends Model
 		'clave' => 'required',
     ];
 
-    protected $perPage = 20;
+    protected $perPage = 7;
 
     /**
      * Attributes that should be mass-assignable.

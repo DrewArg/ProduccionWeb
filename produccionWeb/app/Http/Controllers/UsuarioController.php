@@ -20,7 +20,7 @@ class UsuarioController extends Controller
     {
         $usuarios = Usuario::paginate();
 
-        return view('usuario.index', compact('usuarios'))
+        return view('usuarios.index', compact('usuarios'))
             ->with('i', (request()->input('page', 1) - 1) * $usuarios->perPage());
     }
 
@@ -32,7 +32,7 @@ class UsuarioController extends Controller
     public function create()
     {
         $usuario = new Usuario();
-        return view('usuario.create', compact('usuario'));
+        return view('usuarios.create', compact('usuario'));
     }
 
     /**
@@ -47,7 +47,7 @@ class UsuarioController extends Controller
 
         $usuario = Usuario::create($request->all());
 
-        return redirect()->route('usuario.index')
+        return redirect()->route('usuarios.index')
             ->with('success', 'Usuario creado con exito');
     }
 
@@ -61,7 +61,7 @@ class UsuarioController extends Controller
     {
         $usuario = Usuario::find($id);
 
-        return view('usuario.show', compact('usuario'));
+        return view('usuarios.show', compact('usuario'));
     }
 
     /**
@@ -74,7 +74,7 @@ class UsuarioController extends Controller
     {
         $usuario = Usuario::find($id);
 
-        return view('usuario.edit', compact('usuario'));
+        return view('usuarios.edit', compact('usuario'));
     }
 
     /**
@@ -90,7 +90,7 @@ class UsuarioController extends Controller
 
         $usuario->update($request->all());
 
-        return redirect()->route('usuario.index')
+        return redirect()->route('usuarios.index')
             ->with('success', 'Usuario actualizado con exito');
     }
 
@@ -103,7 +103,7 @@ class UsuarioController extends Controller
     {
         $usuario = Usuario::find($id)->delete();
 
-        return redirect()->route('usuario.index')
+        return redirect()->route('usuarios.index')
             ->with('success', 'Usuario eliminado con exito');
     }
 }

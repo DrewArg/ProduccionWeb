@@ -31,7 +31,14 @@ Route::get('/productos/{producto}',[
 ])->name('productos.show');
 
 //crea todas las rutas con sus respectivos nombres
-Route::resource('pedidos',PedidoController::class);
+Route::resource('/pedidos',PedidoController::class);
+
+Route::resource('/usuarios', UsuarioController::class);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
 
 ///**
 //ACTUALIZACION DE PRODUCTO
@@ -73,10 +80,4 @@ Route::resource('pedidos',PedidoController::class);
 //    ]);
 //    return "El libro se guardó correctamente con el id {$producto->id}";
 //});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('usuario', UsuarioController::class);
 
