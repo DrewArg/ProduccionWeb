@@ -203,7 +203,7 @@
 
 
 <main class="margin__top container">
-            @yield('content')
+            @yield('contents')
 </main>
 
 

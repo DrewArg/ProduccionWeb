@@ -1,6 +1,6 @@
 
 @extends('layouts.layout')
-@section('content')
+
 <!-- 
     <article class="index__article">
         <section class="index__article__section1">
@@ -98,7 +98,7 @@
                 </div>
             </div>
         </section> -->
-
+@section('contents')
 
 <div class="container">
 <div class="container d-flex align-items-center mb-1">
