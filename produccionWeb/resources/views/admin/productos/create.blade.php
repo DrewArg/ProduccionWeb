@@ -20,7 +20,7 @@
                               enctype="multipart/form-data">
                             @csrf
 
-                            @include('productos.form')
+                            @include('admin.productos.form')
 
                         </form>
                     </div>

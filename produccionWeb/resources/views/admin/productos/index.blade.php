@@ -1,8 +1,14 @@
 @extends('admin.layouts.layout')
+
+@section('template_title')
+    Producto
+@endsection
 @section('contents')
 
     <h3>Productos</h3>
-    <img class="edit-delete-icons" src="{{ URL::to('/') }}/iconos/plus.png" alt="plus to add item">
+    <a href="{{URL::route('productos.create')}}">
+        <img class="edit-delete-icons" src="{{ URL::to('/') }}/iconos/plus.png" alt="plus to add item">
+    </a>
 
     <table class="table table-light table-striped">
         <thead>
@@ -36,10 +42,17 @@
                 <td><img class="product-image" src="{{$prod->imagen}}"/></td>
                 <td>{{$prod->puntuacion}}</td>
                 <td>{{$prod->es_activo}}</td>
-                <td class="acciones"><img class="edit-delete-icons" src="{{ URL::to('/') }}/iconos/edit.png"
-                                          alt="pencil to edit"> <img class="edit-delete-icons"
-                                                                     src="{{ URL::to('/') }}/iconos/delete.png"
-                                                                     alt="trash can to delete">
+                <td class="acciones">
+                    <a href="{{URL::route('productos.edit',$prod->id)}}">
+                        <img class="edit-delete-icons" src="{{ URL::to('/') }}/iconos/edit.png"
+                             alt="pencil to edit">
+
+                    </a>
+                    <a href="{{URL::route('productos.destroy',$prod->id)}}" method="POST">
+                        <img class="edit-delete-icons" src="{{ URL::to('/') }}/iconos/delete.png"
+                             alt="trash can to delete">
+                    </a>
+
                 </td>
             </tr>
 

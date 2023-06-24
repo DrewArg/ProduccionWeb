@@ -45,8 +45,8 @@
         <div class="form-group">
             {{ Form::label('tipo_producto') }}
             {{ Form::select('tipo_producto', array(
-                'Físico' => 'fisico',
-                'Audio libro' => 'audio_libro',
+                'fisico' => 'fisico',
+                'audio_libro' => 'audio_libro',
             ), $producto->tipo_producto, ['class' => 'form-control' . ($errors->has('tipo_producto') ? ' is-invalid' : ''), 'placeholder' => 'seleccione el tipo']) }}
             {!! $errors->first('tipo_producto', '<div class="invalid-feedback">:message</div>') !!}
         </div>
@@ -63,6 +63,15 @@
                'Inglés' => 'ingles'
             ), $producto->lenguaje, ['class' => 'form-control' . ($errors->has('lenguaje') ? ' is-invalid' : ''), 'placeholder' => 'seleccione el lenguaje']) }}
             {!! $errors->first('lenguaje', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('es_activo') }}
+            {{ Form::select('es_activo' ,array(
+               '1' => '1',
+               '0' => '0'
+            ), $producto->lenguaje, ['class' => 'form-control' . ($errors->has('es_activo') ? ' is-invalid' : ''), 'placeholder' => 'seleccione el estado']) }}
+            {!! $errors->first('es_activo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>
