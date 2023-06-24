@@ -10,15 +10,9 @@ Route::get('/',[
     ProductoController::class,'home_destacados'
 ])->name('index');
 
-Route::get('/productos',[
-    ProductoController::class, 'index'
-])->name('productos.index');
-
-Route::get('/productos/{producto}',[
-    ProductoController::class, 'show'
-])->name('productos.show');
-
 //crea todas las rutas con sus respectivos nombres
+Route::resource('productos',ProductoController::class);
+
 Route::resource('/pedidos',PedidoController::class);
 
 Route::resource('/usuarios', UsuarioController::class);

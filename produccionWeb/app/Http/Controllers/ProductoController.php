@@ -44,7 +44,10 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        $producto = new Producto();
+        return view('productos.create',[
+            'producto' => $producto
+        ]);
     }
 
     /**
@@ -52,12 +55,19 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(Producto::$rules);
+
+        Producto::create($request->all());
+
+        return redirect()->route('productos.index')
+            ->with('success', 'Producto creado con exito');
     }
 
-    public function show(Producto $producto)
+    public function show($id)
     {
-        return view('productos.detalle_producto', [
+        $producto = Producto::find($id);
+
+        return view('productos.show', [
             'producto'=>$producto
         ]);
     }
@@ -65,9 +75,12 @@ class ProductoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Producto $producto)
+    public function edit($id)
     {
-        //
+        $producto = Producto::find($id);
+        return view('productos.edit',[
+           'producto' => $producto
+        ]);
     }
 
     /**
@@ -75,15 +88,23 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        request()->validate(Producto::$rules);
+
+        $producto->update($request->all());
+
+        return redirect()->route('productos.index')
+            ->with('success','Producto actualizado con éxito');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Producto $producto)
+    public function destroy($id)
     {
-        //
+        $producto = Producto::find($id)->delete();
+
+        return redirect()->route('productos.index')
+            ->with('success','Producto eliminado con éxito');
     }
 
 
