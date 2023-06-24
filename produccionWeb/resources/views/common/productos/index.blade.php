@@ -43,6 +43,6 @@
             @endforeach
         </section>
 
-
+        {{$productos->links()}}
     </article>
 @endsection

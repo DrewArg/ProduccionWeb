@@ -10,7 +10,9 @@ class ProductoController extends Controller
 {
     public function index()
     {
-        $productos = Producto::all();
+        $productos = Producto::where('es_activo',1)
+            ->orderBy('updated_at', 'desc')
+            ->paginate(10);
         return view('common.productos.index', [
             'productos' => $productos
         ]);
@@ -18,7 +20,9 @@ class ProductoController extends Controller
 
     public function admin_index()
     {
-        $productos = Producto::all();
+        $productos = DB::table('productos')
+            ->orderBy('updated_at', 'desc')
+            ->paginate(10);
         return view('admin.productos.index', [
             'productos' => $productos
         ]);
@@ -27,6 +31,7 @@ class ProductoController extends Controller
     private function home_caratula()
     {
         $caratula = DB::table('productos')
+            ->where('es_activo',1)
             ->orderBy('updated_at', 'desc')
             ->first();
 
@@ -36,6 +41,8 @@ class ProductoController extends Controller
     public function home_destacados()
     {
         $productos = DB::table('productos')
+            ->where('es_activo',1)
+            ->orderBy('updated_at', 'desc')
             ->take(6);
 
         $productos = $productos->get();

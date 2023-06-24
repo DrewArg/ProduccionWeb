@@ -6,20 +6,21 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ProductoFactory extends Factory
 {
-    public function definition():array
+    public function definition(): array
     {
-           return [
-               'titulo' => fake()->domainName(),
-               'sinposis' => fake()->paragraph(3),
-               'stock' => fake()->numberBetween(0,1000),
-               'precio'=>fake()->randomFloat(2,1000),
-               'autor'=>fake()->name(),
-               'genero'=>fake()->colorName(),
-               'editorial'=>fake()->domainName(),
-               'tipo_producto'=>'fisico',
-               'imagen'=>fake()->imageUrl(640,480),
-               'puntuacion'=>fake()->randomFloat(1,0,5)
-
-           ];
+        return [
+            'titulo' => fake()->domainName(),
+            'sinopsis' => fake()->paragraph(3),
+            'stock' => fake()->numberBetween(0, 1000),
+            'precio' => fake()->randomFloat(2, 1000, 15000),
+            'autor' => fake()->name(),
+            'genero' => fake()->colorName(),
+            'editorial' => fake()->domainName(),
+            'tipo_producto' => 'fisico',
+            'imagen' => fake()->imageUrl(640, 480),
+            'puntuacion' => fake()->randomFloat(1, 0, 5),
+            'lenguaje' => 'español',
+            'es_activo' => fake()->numberBetween(0, 1)
+        ];
     }
 }

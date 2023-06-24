@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
         <div class="container">
 
-            <a class="navbar-brand fs-1 text-center" href="/">Book Zone</a>
+            <a class="navbar-brand fs-1 text-center" href="{{URL::route('admin_index')}}">Book Zone</a>
 
 
             <div class="">
