@@ -8,12 +8,19 @@ use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
-    //accion principal de este cnotrller
     public function index()
     {
         $productos = Producto::all();
-        return view('productos.index',[
-        'productos'=>$productos
+        return view('common.productos.index', [
+            'productos' => $productos
+        ]);
+    }
+
+    public function admin_index()
+    {
+        $productos = Producto::all();
+        return view('admin.productos.index', [
+            'productos' => $productos
         ]);
     }
 
@@ -23,7 +30,7 @@ class ProductoController extends Controller
             ->orderBy('updated_at', 'desc')
             ->first();
 
-       return $caratula;
+        return $caratula;
     }
 
     public function home_destacados()
@@ -33,9 +40,9 @@ class ProductoController extends Controller
 
         $productos = $productos->get();
 
-        return view('index',[
-            'productos'=>$productos,
-            'caratula'=>$this->home_caratula()
+        return view('common.index', [
+            'productos' => $productos,
+            'caratula' => $this->home_caratula()
         ]);
     }
 
@@ -45,7 +52,7 @@ class ProductoController extends Controller
     public function create()
     {
         $producto = new Producto();
-        return view('productos.create',[
+        return view('admin.productos.create', [
             'producto' => $producto
         ]);
     }
@@ -59,7 +66,7 @@ class ProductoController extends Controller
 
         Producto::create($request->all());
 
-        return redirect()->route('productos.index')
+        return redirect()->route('admin.productos.index')
             ->with('success', 'Producto creado con exito');
     }
 
@@ -67,8 +74,8 @@ class ProductoController extends Controller
     {
         $producto = Producto::find($id);
 
-        return view('productos.show', [
-            'producto'=>$producto
+        return view('common.productos.show', [
+            'producto' => $producto
         ]);
     }
 
@@ -78,8 +85,8 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
-        return view('productos.edit',[
-           'producto' => $producto
+        return view('admin.productos.edit', [
+            'producto' => $producto
         ]);
     }
 
@@ -92,8 +99,8 @@ class ProductoController extends Controller
 
         $producto->update($request->all());
 
-        return redirect()->route('productos.index')
-            ->with('success','Producto actualizado con éxito');
+        return redirect()->route('admin.productos.index')
+            ->with('success', 'Producto actualizado con éxito');
     }
 
     /**
@@ -104,7 +111,7 @@ class ProductoController extends Controller
         $producto = Producto::find($id)->delete();
 
         return redirect()->route('productos.index')
-            ->with('success','Producto eliminado con éxito');
+            ->with('success', 'Producto eliminado con éxito');
     }
 
 

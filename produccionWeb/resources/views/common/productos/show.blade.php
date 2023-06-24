@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('common.layouts.layout')
 @section('contents')
 
     <article>
@@ -51,7 +51,8 @@
                                         <div class="card-body">
                                             <blockquote class="blockquote mb-0">
                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                                <footer class="blockquote-footer">Un usuario <cite title="Source Title">NombreUsuario</cite></footer>
+                                                <footer class="blockquote-footer">Un usuario <cite title="Source Title">NombreUsuario</cite>
+                                                </footer>
                                             </blockquote>
                                         </div>
                                     </div>
@@ -63,7 +64,8 @@
                                         <div class="card-body">
                                             <blockquote class="blockquote mb-0">
                                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                                <footer class="blockquote-footer">Un usuario <cite title="Source Title">NombreUsuario</cite></footer>
+                                                <footer class="blockquote-footer">Un usuario <cite title="Source Title">NombreUsuario</cite>
+                                                </footer>
                                             </blockquote>
                                         </div>
                                     </div>

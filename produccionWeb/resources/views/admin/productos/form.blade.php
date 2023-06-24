@@ -68,6 +68,6 @@
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-success">{{ __('Submit') }}</button>
-        <a class="btn btn-danger" href="{{URL::route('productos.index')}}">Cancelar</a>
+        <a class="btn btn-danger" href="{{URL::route('productos.admin_index')}}">Cancelar</a>
     </div>
 </div>
