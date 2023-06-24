@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
@@ -13,6 +14,18 @@ class ProductoController extends Controller
         $productos = Producto::all();
         return view('productos.index',[
         'productos'=>$productos
+        ]);
+    }
+
+    public function home_destacados()
+    {
+        $productos = DB::table('productos')
+            ->take(6);
+
+        $productos = $productos->get();
+
+        return view('index',[
+            'productos'=>$productos
         ]);
     }
 
