@@ -15,11 +15,17 @@
                 <div class="carousel-item active">
                     <div class="d-flex justify-content-center">
                         <div class="card" style="max-width: 800px;">
+
                             <div class="row g-0">
+
                                 <div class="col-md-4 text-center p-1">
-                                    <img src="{{$caratula->imagen}}" class="img-fluid img-thumbnail"
-                                         alt="...">
+                                    <a href="{{URL::route('productos.show',$caratula->id)}}"
+                                       style="text-decoration: none;">
+                                        <img src="{{$caratula->imagen}}" class="img-fluid img-thumbnail"
+                                             alt="...">
+                                    </a>
                                 </div>
+
                                 <div class="col-md-8">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$caratula->titulo}}</h5>
@@ -29,19 +35,23 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
                 @foreach($productos as $prod)
-                <div class="carousel-item ">
+                    <div class="carousel-item ">
 
                         <div class="d-flex justify-content-center">
                             <div class="card" style="max-width: 800px;">
                                 <div class="row g-0">
                                     <div class="col-md-4 text-center p-1">
-                                        <img src="{{$prod->imagen}}"
-                                             class="img-fluid img-thumbnail"
-                                             alt="...">
+                                        <a href="{{URL::route('productos.show',$prod->id)}}"
+                                           style="text-decoration: none;">
+                                            <img src="{{$prod->imagen}}"
+                                                 class="img-fluid img-thumbnail"
+                                                 alt="...">
+                                        </a>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -55,7 +65,7 @@
                             </div>
                         </div>
 
-                </div>
+                    </div>
                 @endforeach
 
             </div>
@@ -85,7 +95,9 @@
                     <div class="col-4">
                         <a href="nav-link" style="text-decoration: none;">
                             <div class="card h-100">
-                                <img src="{{$prod->imagen}}" class="img-fluid rounded-start" alt="...">
+                                <a href="{{URL::route('productos.show',$prod->id)}}" style="text-decoration: none;">
+                                    <img src="{{$prod->imagen}}" class="img-fluid rounded-start" alt="...">
+                                </a>
                                 <div class="card-body text-center">
                                     <h5 class="card-title">{{$prod->titulo}}</h5>
                                     <p>$ {{$prod->precio}}</p>

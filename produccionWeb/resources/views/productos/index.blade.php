@@ -29,7 +29,7 @@
                                 <h5 class="card-title">Sinopsis</h5>
                                 <p class="card-text">{{$prod->sinopsis}}</p>
                                 <div class="d-flex justify-content-center ">
-                                    <a href="{{route('productos.show', $prod)}}" class="btn btn-warning">Ver
+                                    <a href="{{URL::route('productos.show', $prod->id)}}" class="btn btn-warning">Ver
                                         mas</a>
                                 </div>
 

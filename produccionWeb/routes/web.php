@@ -6,10 +6,6 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PedidoController;
 
-//Route::get('/', function () {
-//    return view('index');
-//})->name('index');
-
 Route::get('/',[
     ProductoController::class,'home_destacados'
 ])->name('index');
