@@ -20,7 +20,7 @@ class ProductoController extends Controller
     private function home_caratula()
     {
         $caratula = DB::table('productos')
-            ->orderBy('id', 'desc')
+            ->orderBy('updated_at', 'desc')
             ->first();
 
        return $caratula;
