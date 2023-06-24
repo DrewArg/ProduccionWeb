@@ -19,6 +19,7 @@ Route::resource('/pedidos',PedidoController::class);
 Route::resource('/usuarios', UsuarioController::class);
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin_index');
+Route::get('/admin/productos',[ProductoController::class,'admin_index'])->name('productos.admin_index');
 
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -30,47 +30,13 @@
 
 
             <div class="">
-
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Buscar producto..." aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
-
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/">Inicio</a>
+                            <a class="nav-link" aria-current="page" href="{{URL::route('admin_index')}}">Admin Home</a>
                         </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                               aria-expanded="false">
-                                Productos
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{URL::route('productos.index')}}">Todos los
-                                        productos</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-
-
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/faq.php">FAQ</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/contacto.php">Contacto</a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/quienes_somos.php">Quienes somos?</a>
+                            <a class="nav-link" aria-current="page" href="/">User Home</a>
                         </li>
 
                     </ul>
