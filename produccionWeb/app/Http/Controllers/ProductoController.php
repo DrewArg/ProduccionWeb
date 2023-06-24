@@ -17,6 +17,15 @@ class ProductoController extends Controller
         ]);
     }
 
+    private function home_caratula()
+    {
+        $caratula = DB::table('productos')
+            ->orderBy('id', 'desc')
+            ->first();
+
+       return $caratula;
+    }
+
     public function home_destacados()
     {
         $productos = DB::table('productos')
@@ -25,7 +34,8 @@ class ProductoController extends Controller
         $productos = $productos->get();
 
         return view('index',[
-            'productos'=>$productos
+            'productos'=>$productos,
+            'caratula'=>$this->home_caratula()
         ]);
     }
 

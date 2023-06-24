@@ -17,15 +17,13 @@
                         <div class="card" style="max-width: 800px;">
                             <div class="row g-0">
                                 <div class="col-md-4 text-center p-1">
-                                    <img src="{{ URL::to('/') }}/imagenes/Libro2.jpg" class="img-fluid img-thumbnail"
+                                    <img src="{{$caratula->imagen}}" class="img-fluid img-thumbnail"
                                          alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a
-                                            natural lead-in to additional content. This content is a little bit
-                                            longer.</p>
+                                        <h5 class="card-title">{{$caratula->titulo}}</h5>
+                                        <p class="card-text">{{$caratula->sinopsis}}</p>
                                         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
                                                 ago</small></p>
                                     </div>
@@ -34,32 +32,31 @@
                         </div>
                     </div>
                 </div>
+                @foreach($productos as $prod)
                 <div class="carousel-item ">
 
-
-                    <div class="d-flex justify-content-center">
-                        <div class="card" style="max-width: 800px;">
-                            <div class="row g-0">
-                                <div class="col-md-4 text-center p-1">
-                                    <img src="{{ URL::to('/') }}/imagenes/Libro2.jpg" class="img-fluid img-thumbnail"
-                                         alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a
-                                            natural lead-in to additional content. This content is a little bit
-                                            longer.</p>
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                                ago</small></p>
+                        <div class="d-flex justify-content-center">
+                            <div class="card" style="max-width: 800px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4 text-center p-1">
+                                        <img src="{{$prod->imagen}}"
+                                             class="img-fluid img-thumbnail"
+                                             alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{$prod->titulo}}</h5>
+                                            <p class="card-text">{{$prod->sinopsis}}</p>
+                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
+                                                    ago</small></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-
-                    </div>
                 </div>
+                @endforeach
 
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -90,7 +87,7 @@
                             <div class="card h-100">
                                 <img src="{{$prod->imagen}}" class="img-fluid rounded-start" alt="...">
                                 <div class="card-body text-center">
-                                    <h5 class="">{{$prod->titulo}}</h5>
+                                    <h5 class="card-title">{{$prod->titulo}}</h5>
                                     <p>$ {{$prod->precio}}</p>
                                 </div>
                             </div>
