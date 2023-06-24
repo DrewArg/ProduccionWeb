@@ -2,19 +2,19 @@
 * {
     margin: 0;
   }
-  
-  
+
+
   html {
     scroll-behavior: smooth;
   }
 
 
-  
+
 .margin__top{
 
     margin-top: 180px;
   }
-  
+
 .index__article__section1__titulo {
     margin-left: 2rem;
     margin-right: 2rem;
@@ -95,3 +95,17 @@
     bottom: 20px;
     right: 20px;
   }
+
+
+.edit-delete-icons {
+    width: 25px;
+    height: 25px;
+    margin-right: 1em;
+
+
+}
+
+
+.edit-delete-icons:hover{
+    cursor: pointer;
+}
