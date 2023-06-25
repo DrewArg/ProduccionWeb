@@ -1,10 +1,10 @@
-@extends('common.layouts.app')
+@extends('admin.layouts.layout')
 
 @section('template_title')
     Usuario
 @endsection
 
-@section('content')
+@section('contents')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -17,7 +17,7 @@
                             </span>
 
                             <div class="float-right">
-                                <a href="{{ route('usuarios.create') }}" class="btn btn-primary btn-sm float-right"
+                                <a href="{{ URL::route('usuarios.create') }}" class="btn btn-primary btn-sm float-right"
                                    data-placement="left">
                                     {{ __('Create New') }}
                                 </a>
@@ -56,12 +56,12 @@
                                         <td>{{ $usuario->clave }}</td>
 
                                         <td>
-                                            <form action="{{ route('usuarios.destroy',$usuario->id) }}" method="POST">
+                                            <form action="{{ URL::route('usuarios.destroy',$usuario->id) }}" method="POST">
                                                 <a class="btn btn-sm btn-primary "
-                                                   href="{{ route('usuarios.show',$usuario->id) }}"><i
+                                                   href="{{ URL::route('usuarios.show',$usuario->id) }}"><i
                                                             class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
                                                 <a class="btn btn-sm btn-success"
-                                                   href="{{ route('usuarios.edit',$usuario->id) }}"><i
+                                                   href="{{ URL::route('usuarios.edit',$usuario->id) }}"><i
                                                             class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                 @csrf
                                                 @method('DELETE')

@@ -20,7 +20,7 @@ class UsuarioController extends Controller
     {
         $usuarios = Usuario::paginate();
 
-        return view('usuarios.index', compact('usuarios'))
+        return view('admin.usuarios.index', compact('usuarios'))
             ->with('i', (request()->input('page', 1) - 1) * $usuarios->perPage());
     }
 
@@ -32,7 +32,7 @@ class UsuarioController extends Controller
     public function create()
     {
         $usuario = new Usuario();
-        return view('usuarios.create', compact('usuario'));
+        return view('admin.usuarios.create', compact('usuario'));
     }
 
     /**
@@ -61,7 +61,7 @@ class UsuarioController extends Controller
     {
         $usuario = Usuario::find($id);
 
-        return view('usuarios.show', compact('usuario'));
+        return view('admin.usuarios.show', compact('usuario'));
     }
 
     /**
@@ -74,7 +74,7 @@ class UsuarioController extends Controller
     {
         $usuario = Usuario::find($id);
 
-        return view('usuarios.edit', compact('usuario'));
+        return view('admin.usuarios.edit', compact('usuario'));
     }
 
     /**

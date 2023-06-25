@@ -1,10 +1,10 @@
-@extends('common.layouts.app')
+@extends('admin.layouts.layout')
 
 @section('template_title')
     {{ $usuario->name ?? "{{ __('Show')  Usuario" }}
 @endsection
 
-@section('content')
+@section('contents')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Usuario</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('usuarios.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ URL::route('usuarios.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 

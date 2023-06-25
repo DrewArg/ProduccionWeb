@@ -7,7 +7,7 @@
 
     <ul>
         <li><a href="{{URL::route('productos.admin_index')}}">Productos</a></li>
-        <li>Usuarios</li>
+        <li><a href="{{URL::route('usuarios.index')}}">Usuarios</a></li>
         <li>Revisiones</li>
         <li>Preguntas</li>
     </ul>

@@ -1,10 +1,10 @@
-@extends('admin.layouts.app')
+@extends('admin.layouts.layout')
 
 @section('template_title')
     {{ __('Create') }} Producto
 @endsection
 
-@section('content')
+@section('contents')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
