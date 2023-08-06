@@ -2,17 +2,41 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Pregunta
+ *
+ * @property $id
+ * @property $respondida
+ * @property $email
+ * @property $nombre
+ * @property $pregunta
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 class Pregunta extends Model
 {
-    use HasFactory;
-
-    protected $fillable = [
-        'email',
-        'respondida',
-        'nombre',
-        'pregunta'
+    
+    static $rules = [
+		'respondida' => 'required',
+		'email' => 'required',
+		'nombre' => 'required',
+		'pregunta' => 'required',
     ];
+
+    protected $perPage = 20;
+
+    /**
+     * Attributes that should be mass-assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['respondida','email','nombre','pregunta'];
+
+
+
 }
