@@ -1,40 +1,40 @@
-@extends('layouts.app')
+@extends('admin.layouts.layout')
 
 @section('template_title')
-    {{ $revision->name ?? "{{ __('Show') Revision" }}
+    {{ $pregunta->name ?? "{{ __('Show') Pregunta" }}
 @endsection
 
-@section('content')
+@section('contents')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Revision</span>
+                            <span class="card-title">{{ __('Mostrar') }} Pregunta</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('revisions.index') }}"> {{ __('Volver') }}</a>
+                            <a class="btn btn-primary" href="{{ URL::route('preguntas.index') }}"> {{ __('Volver') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
-                            <strong>Producto Id:</strong>
-                            {{ $revision->producto_id }}
+                            <strong>Respondida:</strong>
+                            {{ $pregunta->respondida }}
                         </div>
                         <div class="form-group">
-                            <strong>User Id:</strong>
-                            {{ $revision->user_id }}
+                            <strong>Email:</strong>
+                            {{ $pregunta->email }}
                         </div>
                         <div class="form-group">
-                            <strong>Puntuacion:</strong>
-                            {{ $revision->puntuacion }}
+                            <strong>Nombre:</strong>
+                            {{ $pregunta->nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
-                            {{ $revision->descripcion }}
+                            <strong>Pregunta:</strong>
+                            {{ $pregunta->pregunta }}
                         </div>
 
                     </div>

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 
 /**
  * Class Usuario
@@ -18,14 +20,18 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Usuario extends Model
+class Usuario extends Model implements Authenticatable
 {
 
+    use AuthenticableTrait;
+
+    protected $table = 'usuarios';
+
     static $rules = [
-		'nombre' => 'required',
-		'apellido' => 'required',
-		'email' => 'required',
-		'clave' => 'required',
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'email' => 'required',
+        'password' => 'required',
     ];
 
     protected $perPage = 7;
@@ -35,7 +41,7 @@ class Usuario extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','apellido','email','clave'];
+    protected $fillable = ['nombre','apellido','email','password'];
 
 
 

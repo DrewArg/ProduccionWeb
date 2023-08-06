@@ -16,7 +16,7 @@ return new class extends Migration
             $table->boolean('respondida')->default(false);
             $table->string('email')->nullable(false);
             $table->string('nombre')->nullable(false);
-            $table->string('pregunta')->nullable(false);
+            $table->string('preguntas')->nullable(false);
             $table->timestamps();
         });
     }

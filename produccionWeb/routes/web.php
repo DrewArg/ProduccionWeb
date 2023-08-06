@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarritoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 
@@ -15,28 +16,16 @@ Route::get('/',[
 ])->name('index');
 
 //crea todas las rutas con sus respectivos nombres
+Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::resource('/productos',ProductoController::class);
-
 Route::resource('/pedidos',PedidoController::class);
-
-
+Route::get('/carrito', [CarritoController::class,'index'])->name('carrito_index');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin_index');
 Route::resource('/admin/usuarios', UsuarioController::class);
 Route::get('/admin/productos',[ProductoController::class,'admin_index'])->name('productos.admin_index');
-
-Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::resource('preguntas', PreguntaController::class);
-
-Route::resource('revisions', RevisionController::class);
+Route::resource('/admin/preguntas', PreguntaController::class);
+Route::resource('/admin/revisiones', RevisionController::class);
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

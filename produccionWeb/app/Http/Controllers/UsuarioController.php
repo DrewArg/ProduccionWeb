@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,6 @@ class UsuarioController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -27,7 +27,6 @@ class UsuarioController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -39,13 +38,12 @@ class UsuarioController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         request()->validate(Usuario::$rules);
 
-        $usuario = Usuario::create($request->all());
+        Usuario::create($request->all());
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario creado con exito');
@@ -55,7 +53,6 @@ class UsuarioController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
@@ -68,7 +65,6 @@ class UsuarioController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
@@ -81,14 +77,13 @@ class UsuarioController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Usuario $usuario
-     * @return \Illuminate\Http\Response
+     * @param  Usuario $user
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, Usuario $user)
     {
         request()->validate(Usuario::$rules);
 
-        $usuario->update($request->all());
+        $user->update($request->all());
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario actualizado con exito');
@@ -101,7 +96,7 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        $usuario = Usuario::find($id)->delete();
+        $user = Usuario::find($id)->delete();
 
         return redirect()->route('usuarios.index')
             ->with('success', 'Usuario eliminado con exito');

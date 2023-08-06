@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('admin.layouts.layout')
 
 @section('template_title')
-    Revision
+    Pregunta
 @endsection
 
-@section('content')
+@section('contents')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Revision') }}
+                                {{ __('Pregunta') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('revisions.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ URL::route('preguntas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear nueva') }}
                                 </a>
                               </div>
@@ -35,29 +35,29 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
-										<th>Producto Id</th>
-										<th>User Id</th>
-										<th>Puntuacion</th>
-										<th>Descripcion</th>
+
+										<th>Respondida</th>
+										<th>Email</th>
+										<th>Nombre</th>
+										<th>Pregunta</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($revisions as $revision)
+                                    @foreach ($preguntas as $pregunta)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $revision->producto_id }}</td>
-											<td>{{ $revision->user_id }}</td>
-											<td>{{ $revision->puntuacion }}</td>
-											<td>{{ $revision->descripcion }}</td>
+
+											<td>{{ $pregunta->respondida }}</td>
+											<td>{{ $pregunta->email }}</td>
+											<td>{{ $pregunta->nombre }}</td>
+											<td>{{ $pregunta->pregunta }}</td>
 
                                             <td>
-                                                <form action="{{ route('revisions.destroy',$revision->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('revisions.show',$revision->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('revisions.edit',$revision->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                <form action="{{ URL::route('preguntas.destroy',$pregunta->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ URL::route('preguntas.show',$pregunta->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ URL::route('preguntas.edit',$pregunta->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $revisions->links() !!}
+                {!! $preguntas->links() !!}
             </div>
         </div>
     </div>

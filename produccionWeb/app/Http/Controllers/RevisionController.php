@@ -14,32 +14,29 @@ class RevisionController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $revisions = Revision::paginate();
+        $revisiones = Revision::paginate();
 
-        return view('revision.index', compact('revisions'))
-            ->with('i', (request()->input('page', 1) - 1) * $revisions->perPage());
+        return view('admin.revisiones.index', compact('revisiones'))
+            ->with('i', (request()->input('page', 1) - 1) * $revisiones->perPage());
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
         $revision = new Revision();
-        return view('revision.create', compact('revision'));
+        return view('admin.revisiones.create', compact('revision'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -47,7 +44,7 @@ class RevisionController extends Controller
 
         $revision = Revision::create($request->all());
 
-        return redirect()->route('revisions.index')
+        return redirect()->route('admin.revisiones.index')
             ->with('success', 'Revision creada exitosamente.');
     }
 
@@ -55,26 +52,24 @@ class RevisionController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $revision = Revision::find($id);
 
-        return view('revision.show', compact('revision'));
+        return view('admin.revisiones.show', compact('revision'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $revision = Revision::find($id);
 
-        return view('revision.edit', compact('revision'));
+        return view('admin.revisiones.edit', compact('revision'));
     }
 
     /**
@@ -82,7 +77,6 @@ class RevisionController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param  Revision $revision
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Revision $revision)
     {
@@ -90,20 +84,19 @@ class RevisionController extends Controller
 
         $revision->update($request->all());
 
-        return redirect()->route('revisions.index')
+        return redirect()->route('admin.revisiones.index')
             ->with('success', 'Revision editada exitosamente');
     }
 
     /**
      * @param int $id
-     * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
     public function destroy($id)
     {
         $revision = Revision::find($id)->delete();
 
-        return redirect()->route('revisions.index')
+        return redirect()->route('admin.revisiones.index')
             ->with('success', 'Revision eliminada exitosamente');
     }
 }

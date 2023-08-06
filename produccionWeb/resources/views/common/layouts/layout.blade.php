@@ -147,7 +147,7 @@
 
                 <div class="d-flex justify-content-center">
 
-                    <a href="../pages/carrito.php" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
+                    <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
                     <a href="{{URL::route('admin_index')}}" class="nav-link" >ADMIN</a>
 
                 </div>

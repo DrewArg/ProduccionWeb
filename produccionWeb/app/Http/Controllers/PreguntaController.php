@@ -14,32 +14,29 @@ class PreguntaController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
         $preguntas = Pregunta::paginate();
 
-        return view('pregunta.index', compact('preguntas'))
+        return view('admin.preguntas.index', compact('preguntas'))
             ->with('i', (request()->input('page', 1) - 1) * $preguntas->perPage());
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function create()
     {
         $pregunta = new Pregunta();
-        return view('pregunta.create', compact('pregunta'));
+        return view('admin.preguntas.create', compact('pregunta'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -47,7 +44,7 @@ class PreguntaController extends Controller
 
         $pregunta = Pregunta::create($request->all());
 
-        return redirect()->route('preguntas.index')
+        return redirect()->route('admin.preguntas.index')
             ->with('success', 'Pregunta creada exitosamente.');
     }
 
@@ -55,26 +52,24 @@ class PreguntaController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $pregunta = Pregunta::find($id);
 
-        return view('pregunta.show', compact('pregunta'));
+        return view('admin.preguntas.show', compact('pregunta'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $pregunta = Pregunta::find($id);
 
-        return view('pregunta.edit', compact('pregunta'));
+        return view('admin.preguntas.edit', compact('pregunta'));
     }
 
     /**
@@ -82,7 +77,6 @@ class PreguntaController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param  Pregunta $pregunta
-     * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Pregunta $pregunta)
     {
@@ -90,7 +84,7 @@ class PreguntaController extends Controller
 
         $pregunta->update($request->all());
 
-        return redirect()->route('preguntas.index')
+        return redirect()->route('admin.preguntas.index')
             ->with('success', 'Pregunta editada exitosamente');
     }
 
@@ -103,7 +97,7 @@ class PreguntaController extends Controller
     {
         $pregunta = Pregunta::find($id)->delete();
 
-        return redirect()->route('preguntas.index')
+        return redirect()->route('admin.preguntas.index')
             ->with('success', 'Pregunta eliminada exitosamente');
     }
 }

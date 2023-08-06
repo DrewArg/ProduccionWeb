@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('admin.layouts.layout')
 
 @section('template_title')
-    {{ __('Create') }} Pregunta
+    {{ __('Create') }} Revision
 @endsection
 
-@section('content')
+@section('contents')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -13,13 +13,13 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Crear') }} Pregunta</span>
+                        <span class="card-title">{{ __('Crear') }} Revision</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('preguntas.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ URL::route('revisiones.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('pregunta.form')
+                            @include('admin.revisiones.form')
 
                         </form>
                     </div>

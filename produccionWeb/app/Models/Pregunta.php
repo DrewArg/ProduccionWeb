@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $respondida
  * @property $email
  * @property $nombre
- * @property $pregunta
+ * @property $preguntas
  * @property $created_at
  * @property $updated_at
  *
@@ -20,12 +20,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Pregunta extends Model
 {
-    
+
     static $rules = [
 		'respondida' => 'required',
 		'email' => 'required',
 		'nombre' => 'required',
-		'pregunta' => 'required',
+		'preguntas' => 'required',
     ];
 
     protected $perPage = 20;
@@ -35,7 +35,7 @@ class Pregunta extends Model
      *
      * @var array
      */
-    protected $fillable = ['respondida','email','nombre','pregunta'];
+    protected $fillable = ['respondida','email','nombre','preguntas'];
 
 
 

@@ -13,10 +13,15 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('apellido');
-            $table->string('email');
-            $table->string('clave');
+            $table->string('nombre')->nullable(false);
+            $table->string('apellido')->nullable(false);
+            $table->string('email')->unique()->nullable(false);
+            $table->string('clave')->nullable(false);
+            $table->string('direccion')->nullable(true);
+            $table->rememberToken();
+            $table->string('telefono')->nullable(true);
+            $table->boolean('tipo_usuario')->default(false);
+            $table->integer('id_carrito')->nullable(false);
             $table->timestamps();
         });
     }

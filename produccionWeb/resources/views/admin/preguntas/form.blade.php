@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('respondida') }}
             {{ Form::text('respondida', $pregunta->respondida, ['class' => 'form-control' . ($errors->has('respondida') ? ' is-invalid' : ''), 'placeholder' => 'Respondida']) }}
@@ -17,9 +17,9 @@
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('pregunta') }}
-            {{ Form::text('pregunta', $pregunta->pregunta, ['class' => 'form-control' . ($errors->has('pregunta') ? ' is-invalid' : ''), 'placeholder' => 'Pregunta']) }}
-            {!! $errors->first('pregunta', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('preguntas') }}
+            {{ Form::text('preguntas', $pregunta->pregunta, ['class' => 'form-control' . ($errors->has('preguntas') ? ' is-invalid' : ''), 'placeholder' => 'Pregunta']) }}
+            {!! $errors->first('preguntas', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>
