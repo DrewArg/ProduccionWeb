@@ -2,15 +2,26 @@
 
 @section('contents')
 
-    <h3>Bienvenido Admin!</h3>
-    <p>¿Que te gustaría chusmear?</p>
 
-    <ul>
-        <li><a href="{{URL::route('productos.admin_index')}}">Productos</a></li>
-        <li><a href="{{URL::route('usuarios.index')}}">Usuarios</a></li>
-        <li><a href="{{URL::route('revisiones.index')}}">Revisiones</a></li>
-        <li><a href="{{URL::route('preguntas.index')}}">Preguntas</a></li>
+
+
+    <div class="container mt-5">
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        <h3>Bienvenido Administrador</h4>
+      </div>
+      <div class="card-body">
+        <h4 class="card-text">Bienvenido a la plataforma de administración.</h4>
+        <p class="card-text">Aquí puedes gestionar los usuarios, revisiones, preguntas.</p>
+        <ul>
+        <li><a class="nav-link fs-6" href="{{URL::route('productos.admin_index')}}">Productos</a></li>
+        <li><a class="nav-link fs-6" href="{{URL::route('usuarios.index')}}">Usuarios</a></li>
+        <li><a class="nav-link fs-6" href="{{URL::route('revisiones.index')}}">Revisiones</a></li>
+        <li><a class="nav-link fs-6" href="{{URL::route('preguntas.index')}}">Preguntas</a></li>
     </ul>
+      </div>
+    </div>
+  </div>
 
 
 @endsection

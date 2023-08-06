@@ -33,10 +33,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{URL::route('admin_index')}}">Admin Home</a>
+                            <a class="nav-link" aria-current="page" href="{{URL::route('admin_index')}}">Inicio Administrador</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/">User Home</a>
+                            <a class="nav-link" aria-current="page" href="/">Sitio Web BookZone</a>
                         </li>
 
                     </ul>

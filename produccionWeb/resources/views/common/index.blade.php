@@ -107,14 +107,14 @@
                     </div>
 
                 @endforeach
-                <div class="col-4">
+                <div class="col-4 d-flex container  mt-3 col-12 justify-content-center">
 
-                    <div class="container d-flex justify-content-center mt-3 col-12">
-                        <button class="btn btn-info fs-3"><a class="nav-link"
+                   
+                        <button class="btn btn-info fs-3 justify-content-center"><a class="nav-link"
                                                              href="{{ URL::route('productos.index') }}">{{ __('Ver todos los productos') }}</a>
                         </button>
 
-                    </div>
+                  
                 </div>
 
 

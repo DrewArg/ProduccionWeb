@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\CarritoController;
+use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\FAQController;
+use App\Http\Controllers\QuienesSomosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 
@@ -21,6 +24,9 @@ Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name(
 Route::resource('/productos',ProductoController::class);
 Route::resource('/pedidos',PedidoController::class);
 Route::get('/carrito', [CarritoController::class,'index'])->name('carrito_index');
+Route::get('/contacto', [ContactoController::class,'index'])->name('contacto_index');
+Route::get('/FAQ', [FAQController::class,'index'])->name('FAQ_index');
+Route::get('/quienesSomos', [QuienesSomosController::class,'index'])->name('quienesSomos_index');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin_index');
 Route::resource('/admin/usuarios', UsuarioController::class);

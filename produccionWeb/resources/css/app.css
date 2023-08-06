@@ -69,7 +69,7 @@
 }
 
 .nav__global {
-    background-color: #fff59d;
+    background-color: #fff59d !important;
 }
 
 .nav__global__item {
@@ -114,3 +114,14 @@
     width: 40px;
     height: 80px;
 }
+
+* {
+
+    font-family: 'Poppins', sans-serif;
+}
+
+header footer {
+
+    font-family: 'Playfair Display', serif !important;
+}
+
