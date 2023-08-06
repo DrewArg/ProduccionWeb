@@ -57,11 +57,14 @@ class UsuarioController extends Controller
         $carrito = new Carrito();
         $carrito->save();
 
+
+
+
        $usuario = new Usuario([
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
             'email' => $request->email,
-            'clave' => Hash::make($request->clave),
+            'clave' => $request->clave,
             'id_carrito' => $carrito->id,
         ]);
 

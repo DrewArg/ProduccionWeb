@@ -66,17 +66,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         $carrito = new Carrito();
         $carrito->save();
 
-        $user = new Usuario([
-            'nombre' => $data['nombre'],
-            'apellido' => $data['apellido'],
-            'email' => $data['email'],
-            'clave' => Hash::make($data['password']),
-            'id_carrito' => $carrito->id,
-        ]);
-
+        $user = new Usuario();
+        $user->nombre = $data['nombre'];
+        $user->apellido = $data['apellido'];
+        $user->email = $data['email'];
+        $user->clave = Hash::make($data['password']);
+        $user->id_carrito=$carrito->id;
         $user->save();
 
         return $user;

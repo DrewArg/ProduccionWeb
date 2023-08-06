@@ -41,7 +41,7 @@ class Usuario extends Model implements Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['nombre','apellido','email','password'];
+    protected $fillable = ['nombre', 'apellido', 'email', 'clave', 'id_carrito','direccion','telefono'];
 
     public function carrito()
     {
