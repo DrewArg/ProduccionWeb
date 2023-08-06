@@ -147,7 +147,7 @@
 </button>
 
 
-<footer class="py-3 mt-4 sticky-footer nav__global">
+<footer class="py-3 sticky-footer nav__global mt-5">
 
     <div class="container">
         <div class="row d-flex justify-content-between">
