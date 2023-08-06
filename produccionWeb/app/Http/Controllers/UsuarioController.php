@@ -66,6 +66,8 @@ class UsuarioController extends Controller
             'email' => $request->email,
             'clave' => $request->clave,
             'id_carrito' => $carrito->id,
+           'telefono'=>$request->telefono,
+           'direccion'=>$request->direccion
         ]);
 
         $usuario->save();
