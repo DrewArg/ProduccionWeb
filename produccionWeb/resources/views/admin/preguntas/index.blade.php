@@ -55,7 +55,7 @@
 											<td>{{ $pregunta->respondida }}</td>
 											<td>{{ $pregunta->email }}</td>
 											<td>{{ $pregunta->nombre }}</td>
-											<td>{{ $pregunta->pregunta }}</td>
+											<td>{{ $pregunta->preguntas }}</td>
 
                                             <td>
                                             
