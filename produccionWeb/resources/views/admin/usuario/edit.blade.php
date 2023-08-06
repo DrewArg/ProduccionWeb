@@ -1,26 +1,26 @@
-@extends('admin.layouts.layout')
+@extends('layouts.app')
 
 @section('template_title')
-    {{ __('Create') }} Usuario
+    {{ __('Update') }} Usuario
 @endsection
 
-@section('contents')
+@section('content')
     <section class="content container-fluid">
-        <div class="row">
+        <div class="">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Usuario</span>
+                        <span class="card-title">{{ __('Update') }} Usuario</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ URL::route('usuarios.store') }}" role="form"
-                              enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('usuarios.update', $usuario->id) }}"  role="form" enctype="multipart/form-data">
+                            {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('admin.usuarios.form')
+                            @include('admin/usuario.form')
 
                         </form>
                     </div>
