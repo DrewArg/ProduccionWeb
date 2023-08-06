@@ -88,11 +88,11 @@
 
 
 
-                    @if(auth()->user()->tipo_usuario === 1)
-    <a href="{{ route('admin_index') }}" class="nav-link">ADMIN</a>
-@else
-    <p class="fs-6">{{ auth()->user()->nombre }}</p>
-@endif
+                                        @if(auth()->user()->tipo_usuario === 1)
+                        <a href="{{ route('admin_index') }}" class="nav-link">ADMIN</a>
+                    @else
+                        <p class="fs-6">{{ auth()->user()->nombre }}</p>
+                    @endif
 
                 @endguest
 
