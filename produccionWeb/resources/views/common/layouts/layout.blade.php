@@ -76,29 +76,30 @@
             </div>
 
 
-            <div class="align-item-center">
+            <div class="d-flex justify-content-center">
                 @guest
-                    <a class="nav-link d-inline"
-                               href="{{ URL::route('login') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
-                           <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
+                    <a class="nav-link px-3"href="{{ URL::route('login') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
                 @else
-                    <a class="dropdown-item" href="{{ URL::route('logout') }}"
-                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                    <a class="dropdown-item" href="{{ URL::route('logout') }}" onclick="event.preventDefault();                                                document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
-                    <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
-                    <a href="{{URL::route('admin_index')}}" class="nav-link" >ADMIN</a>
+                    <a href="{{URL::route('carrito_index')}}" class="nav-link col-6 d-flex justify-content-center"><i class="fa-solid fa-cart-plus fa-2x align-self-center"></i></a>
+                    
+
+
+
+
+                                        @if(auth()->user()->tipo_usuario === 1)
+                        <a href="{{ route('admin_index') }}" class="nav-link">ADMIN</a>
+                    @else
+                        <p class="fs-6">{{ auth()->user()->nombre }}</p>
+                    @endif
 
                 @endguest
 
 
-                <div class="d-flex justify-content-center">
-
-
-
-
-                </div>
+              
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
