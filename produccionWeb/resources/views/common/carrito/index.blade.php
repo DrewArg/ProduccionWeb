@@ -64,52 +64,16 @@
                     </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Lorem</td>
-                        <td><span>-</span> 1 <span>+</span></td>
-                        <td>1500</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Lorem</td>
-                        <td><span>-</span> 2 <span>+</span></td>
-                        <td>1000</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Lorem</td>
-                        <td><span>-</span> 3 <span>+</span></td>
-                        <td>2000</td>
-                    </tr>
+                    @foreach ($productos as $producto)
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ $producto->titulo }}</td>
+                            <td><span>-</span> 1 <span>+</span></td>
+                            <td>{{ $producto->precio }}</td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
-
-                <div class="ticket-resumen">
-                    <p>Precio: $ 9 500 </p>
-                    <p>IVA: $ 1 995</p>
-                    <p>Total: $ 11 495</p>
-                </div>
-
-                <div class="dropdown">
-                    <p>Enviar a: Pivet Drive 4</p>
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Direcciones
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Avenida Siempre Viva 742</a></li>
-                        <li><a class="dropdown-item" href="#">Pivet Drive 4</a></li>
-                    </ul>
-                </div>
-
-                <div class="ticket-botonera">
-                    <button type="button" class="btn btn-danger">Vaciar</button>
-                    <button type="button" class="btn btn-success">Comprar!</button>
-                </div>
-
-            </div>
         </div>
     </div>
 @endsection

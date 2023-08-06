@@ -20,5 +20,28 @@ class CarritoController extends Controller
         ]);
     }
 
+    public function agregarProducto(Request $request)
+    {
+        $productoId = $request->input('producto_id');
+        $cantidad = $request->input('cantidad');
+        $tipo = $request->input('tipo');
+
+        $carrito = Carrito::find(1);
+
+        if ($carrito->productos->contains($productoId)) {
+            $carrito->productos()->updateExistingPivot($productoId, [
+                'cantidad' => $cantidad,
+                'tipo' => $tipo,
+            ]);
+        } else {
+            $carrito->productos()->attach($productoId, [
+                'cantidad' => $cantidad,
+                'tipo' => $tipo,
+            ]);
+        }
+
+        return response()->json(['message' => 'Producto agregado al carrito correctamente.']);
+    }
+
 
 }
