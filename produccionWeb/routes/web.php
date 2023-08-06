@@ -14,6 +14,7 @@ use App\Http\Controllers\PreguntaController;
 use App\Http\Controllers\RevisionController;
 
 
+
 Route::get('/',[
     ProductoController::class,'home_destacados'
 ])->name('index');
@@ -35,7 +36,6 @@ Route::resource('/admin/usuarios', UsuarioController::class);
 Route::get('/admin/productos',[ProductoController::class,'admin_index'])->name('productos.admin_index');
 Route::resource('/admin/preguntas', PreguntaController::class);
 Route::resource('/admin/revisiones', RevisionController::class);
+Route::post('/contacto', [PreguntaController::class, 'procesarFormulario'])->name('contacto.procesar');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

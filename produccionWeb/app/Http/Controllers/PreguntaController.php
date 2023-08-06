@@ -116,17 +116,20 @@ class PreguntaController extends Controller
             'email' => 'required|email|max:255',
             'preguntas' => 'required|string|max:1000',
         ]);
-    
+
         Pregunta::create([
             'nombre' => $request->nombre,
             'email' => $request->email,
             'preguntas' => $request->preguntas,
             'respondida' => false, 
         ]);
-    
+
+        
         $request->session()->flash('success', 'Gracias por tu mensaje. Te responderemos pronto.');
-    
+
+       
         return back();
     }
+
 
 }

@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Pregunta:</strong>
-                            {{ $pregunta->preguntas }}
+                            {{ $pregunta->pregunta }}
                         </div>
 
                     </div>

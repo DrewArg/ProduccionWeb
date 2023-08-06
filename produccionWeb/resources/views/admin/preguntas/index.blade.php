@@ -8,11 +8,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-            
-            
             @if ($message = Session::get('success'))
-             <div class="alert alert-success">
-                <p>{{ $message }}</p>
+    <div class="alert alert-success">
+        <p>{{ $message }}</p>
     </div>
 @endif
                 <div class="card">
@@ -57,7 +55,7 @@
 											<td>{{ $pregunta->respondida }}</td>
 											<td>{{ $pregunta->email }}</td>
 											<td>{{ $pregunta->nombre }}</td>
-											<td>{{ $pregunta->preguntas }}</td>
+											<td>{{ $pregunta->pregunta }}</td>
 
                                             <td>
                                             

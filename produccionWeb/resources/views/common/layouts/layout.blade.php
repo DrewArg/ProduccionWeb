@@ -81,7 +81,7 @@
 
                         @if (Route::has('register'))
                             <a class="nav-link d-inline"
-                               href="{{ URL::route('login') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                               href="{{ URL::route('register') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
                         @endif
                             <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
                     </p>
@@ -138,6 +138,79 @@
 <main class="margin__top container">
     @yield('contents')
 </main>
+
+
+<button class="btn whatsapp-icon" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover"
+        data-bs-content="Contactanos por WhatsApp">
+    <a class="nav-link" target="_blank" href="https://wa.me/5491111111111"><i
+            class="fa-brands fa-square-whatsapp fa-4x"></i></a>
+</button>
+
+
+<footer class="py-3 sticky-footer nav__global mt-5">
+
+    <div class="container">
+        <div class="row d-flex justify-content-between">
+
+            <div class="col-5 row">
+
+
+                <div class="col-lg-6">
+
+
+                    <h4>Contacto</h4>
+                    <hr>
+                    <p>
+                        Whatsapp: <br>
+                        011-15-11111111
+                    </p>
+
+                    <p>
+                        Mail: <br>
+                        mail@café.com
+                    </p>
+
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+
+<h4>Navegación</h4>
+<hr>
+
+<p>
+
+  <a href="/" class="nav-link p-0 m-0">Inicio</a>
+  <a href="{{URL::route('productos.index')}}" class="nav-link p-0 m-0">Productos</a>
+  <a href="{{URL::route('FAQ_index')}}" class="nav-link p-0 m-0">FAQ</a>
+  <a href="{{URL::route('contacto_index')}}" class="nav-link p-0 m-0">Contacto</a>
+  <a href="{{URL::route('quienesSomos_index')}}" class="nav-link p-0 m-0">Quienes Somos?</a>
+
+
+</p>
+
+
+
+
+</div>
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
 
 <!-- Font Awesome  -->
 <script src="https://kit.fontawesome.com/60be70fbe4.js" crossorigin="anonymous"></script>
