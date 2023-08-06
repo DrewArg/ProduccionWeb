@@ -41,35 +41,15 @@
                                         <li>Género: {{$producto->genero}}</li>
                                     </ul>
                                 </div>
-                                <div class="col-12 mb-3">
-                                    <hr>
-                                    <h3>Reviews</h3>
-                                    <div class="card mb-3">
-                                        <div class="card-header">
-                                            Quote
-                                        </div>
-                                        <div class="card-body">
-                                            <blockquote class="blockquote mb-0">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                                <footer class="blockquote-footer">Un usuario <cite title="Source Title">NombreUsuario</cite>
-                                                </footer>
-                                            </blockquote>
-                                        </div>
-                                    </div>
 
-                                    <div class="card mb-3">
-                                        <div class="card-header">
-                                            Quote
-                                        </div>
-                                        <div class="card-body">
-                                            <blockquote class="blockquote mb-0">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                                <footer class="blockquote-footer">Un usuario <cite title="Source Title">NombreUsuario</cite>
-                                                </footer>
-                                            </blockquote>
-                                        </div>
-                                    </div>
+
+
+                                <div class="col-6 mb-3 d-flex justify-content-center">
+
+                                <a href="" class="btn bg-info align-self-end">Agregar al Carrito</a>  
+
                                 </div>
+                             
                             </div>
                         </div>
                     </div>
