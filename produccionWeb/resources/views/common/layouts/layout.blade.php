@@ -76,41 +76,16 @@
 
             <div class="align-item-center">
                 @guest
-
-                    <p class="">
-
-                        @if (Route::has('register'))
-                            <a class="nav-link d-inline"
+                    <a class="nav-link d-inline"
                                href="{{ URL::route('login') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
-                        @endif
-                            <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
-                    </p>
-
+                           <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
                 @else
-
-                    <ul>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ URL::route('logout') }}"
-                                   onclick="event.preventDefault();
+                    <a class="dropdown-item" href="{{ URL::route('logout') }}"
+                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <a href="{{URL::route('admin_index')}}" class="nav-link" >ADMIN</a>
-
-                                <form id="logout-form" action="{{ URL::route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-
-
-                    </ul>
+                        {{ __('Logout') }}
+                    </a>
+                    <a href="{{URL::route('admin_index')}}" class="nav-link" >ADMIN</a>
 
                 @endguest
 
