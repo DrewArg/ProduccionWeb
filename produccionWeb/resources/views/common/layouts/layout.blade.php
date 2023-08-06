@@ -76,7 +76,7 @@
 
             <div class="d-flex justify-content-center">
                 @guest
-                    <a class="nav-link"href="{{ URL::route('login') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a class="nav-link px-3"href="{{ URL::route('login') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
                     <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
                 @else
                     <a class="dropdown-item" href="{{ URL::route('logout') }}" onclick="event.preventDefault();                                                document.getElementById('logout-form').submit();">
