@@ -28,22 +28,4 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    /**
-     * Validate the user's credentials.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    protected function validateCredentials($request, $credentials)
-    {
-        $plainPassword = $credentials['password'];
-
-        // Deshasheamos la contraseña almacenada en la base de datos usando Auth::getProvider()->getHasher()
-        $hashedPassword = Auth::getProvider()->getHasher()->getHash();
-
-        return [
-            'email' => $credentials['email'],
-            'password' => $plainPassword,
-        ];
-    }
 }

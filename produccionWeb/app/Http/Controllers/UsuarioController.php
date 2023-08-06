@@ -64,7 +64,7 @@ class UsuarioController extends Controller
             'nombre' => $request->nombre,
             'apellido' => $request->apellido,
             'email' => $request->email,
-            'clave' => $request->clave,
+            'password' => $request->clave,
             'id_carrito' => $carrito->id,
            'telefono'=>$request->telefono,
            'direccion'=>$request->direccion

@@ -81,7 +81,7 @@
 
                         @if (Route::has('register'))
                             <a class="nav-link d-inline"
-                               href="{{ URL::route('register') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                               href="{{ URL::route('login') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
                         @endif
                             <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
                     </p>
