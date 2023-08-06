@@ -43,6 +43,9 @@ class Usuario extends Model implements Authenticatable
      */
     protected $fillable = ['nombre','apellido','email','password'];
 
-
+    public function carrito()
+    {
+        return $this->hasOne(Carrito::class);
+    }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Carrito;
 use App\Providers\RouteServiceProvider;
 use App\Models\Usuario;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -65,11 +66,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = new Usuario();
-        $user->nombre = $data['nombre'];
-        $user->apellido = $data['apellido'];
-        $user->email = $data['email'];
-        $user->clave = Hash::make($data['password']);
+        $carrito = new Carrito();
+        $carrito->save();
+
+        $user = new Usuario([
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'email' => $data['email'],
+            'clave' => Hash::make($data['password']),
+            'id_carrito' => $carrito->id,
+        ]);
+
         $user->save();
 
         return $user;

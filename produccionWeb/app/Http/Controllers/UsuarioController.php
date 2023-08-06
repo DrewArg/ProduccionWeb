@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Carrito;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class UsuarioController
@@ -39,14 +40,34 @@ class UsuarioController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      */
+//    public function store(Request $request)
+//    {
+//        request()->validate(Usuario::$rules);
+//
+//        Usuario::create($request->all());
+//
+//        return redirect()->route('usuarios.index')
+//            ->with('success', 'Usuario creado con exito');
+//    }
+
     public function store(Request $request)
     {
         request()->validate(Usuario::$rules);
 
-        Usuario::create($request->all());
+        $carrito = new Carrito();
+        $carrito->save();
 
-        return redirect()->route('usuarios.index')
-            ->with('success', 'Usuario creado con exito');
+       $usuario = new Usuario([
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
+            'email' => $request->email,
+            'clave' => Hash::make($request->clave),
+            'id_carrito' => $carrito->id,
+        ]);
+
+        $usuario->save();
+
+        return redirect()->route('usuarios.index')->with('success', 'Usuario creado con éxito');
     }
 
     /**

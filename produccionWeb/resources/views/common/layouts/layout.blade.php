@@ -29,18 +29,7 @@
 
 <header class="mb-5 fixed-top nav__global">
 
-    <div class="border-bottom">
-        <div class="container d-flex justify-content-between align-items-center py-1">
-
-            <h1 class="fs-6 align-self-center my-0">Buenos Aires | WhatsApp 011-15-11111111 | Mail
-            cafemail@café.com </h1>
-
-          
-        </div>
-    </div>
-
-
-    <nav class="navbar navbar-expand-lg ">
+        <nav class="navbar navbar-expand-lg ">
         <div class="container">
 
             <a class="navbar-brand fs-1 text-center" href="/">Book Zone</a>
@@ -48,7 +37,7 @@
 
             <div class="">
 
-                
+
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -62,13 +51,13 @@
                             <a class="nav-link" aria-current="page" href="{{URL::route('productos.index')}}">Productos</a>
                         </li>
 
-                
+
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{URL::route('FAQ_index')}}">FAQ</a>
                         </li>
 
                         <li class="nav-item">
-                        
+
                             <a class="nav-link" aria-current="page" href="{{URL::route('contacto_index')}}">Contacto</a>
                         </li>
 
@@ -92,16 +81,9 @@
 
                         @if (Route::has('register'))
                             <a class="nav-link d-inline"
-                               href="{{ URL::route('register') }}">{{ __('Crear cuenta') }}</a>
+                               href="{{ URL::route('register') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
                         @endif
-
-                        <span>|</span>
-
-                        @if (Route::has('login'))
-                            <a class="nav-link d-inline" href="{{ URL::route('login') }}">{{ __('Iniciar sesión') }}</a>
-                        @endif
-
-
+                            <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
                     </p>
 
                 @else
@@ -119,6 +101,7 @@
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
+                                <a href="{{URL::route('admin_index')}}" class="nav-link" >ADMIN</a>
 
                                 <form id="logout-form" action="{{ URL::route('logout') }}" method="POST" class="d-none">
                                     @csrf
@@ -134,8 +117,8 @@
 
                 <div class="d-flex justify-content-center">
 
-                    <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
-                    <a href="{{URL::route('admin_index')}}" class="nav-link" >ADMIN</a>
+
+
 
                 </div>
             </div>
@@ -217,7 +200,7 @@
             </div>
 
 
-         
+
 
 
         </div>

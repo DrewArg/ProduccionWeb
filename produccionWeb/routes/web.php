@@ -27,6 +27,8 @@ Route::get('/carrito', [CarritoController::class,'index'])->name('carrito_index'
 Route::get('/contacto', [ContactoController::class,'index'])->name('contacto_index');
 Route::get('/FAQ', [FAQController::class,'index'])->name('FAQ_index');
 Route::get('/quienesSomos', [QuienesSomosController::class,'index'])->name('quienesSomos_index');
+Route::get('/carrito/{carritoId}', [CarritoController::class, 'mostrarCarrito']);
+
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin_index');
 Route::resource('/admin/usuarios', UsuarioController::class);
