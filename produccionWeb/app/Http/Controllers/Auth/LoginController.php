@@ -8,6 +8,16 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
 
     use AuthenticatesUsers;
 
@@ -26,24 +36,5 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-    }
-
-    /**
-     * Validate the user's credentials.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-    protected function validateCredentials($request, $credentials)
-    {
-        $plainPassword = $credentials['password'];
-
-        // Deshasheamos la contraseña almacenada en la base de datos usando Auth::getProvider()->getHasher()
-        $hashedPassword = Auth::getProvider()->getHasher()->getHash();
-
-        return [
-            'email' => $credentials['email'],
-            'password' => $plainPassword,
-        ];
     }
 }

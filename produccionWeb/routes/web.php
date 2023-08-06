@@ -37,5 +37,9 @@ Route::get('/admin/productos',[ProductoController::class,'admin_index'])->name('
 Route::resource('/admin/preguntas', PreguntaController::class);
 Route::resource('/admin/revisiones', RevisionController::class);
 Route::post('/contacto', [PreguntaController::class, 'procesarFormulario'])->name('contacto.procesar');
+Route::resource('pedidos', PedidoController::class);
+Auth::routes();
 
 Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
