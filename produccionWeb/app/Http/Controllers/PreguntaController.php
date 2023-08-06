@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pregunta;
 use Illuminate\Http\Request;
 
+
 /**
  * Class PreguntaController
  * @package App\Http\Controllers
@@ -44,7 +45,7 @@ class PreguntaController extends Controller
 
         $pregunta = Pregunta::create($request->all());
 
-        return redirect()->route('admin.preguntas.index')
+        return redirect()->route('preguntas.index')
             ->with('success', 'Pregunta creada exitosamente.');
     }
 
@@ -84,7 +85,7 @@ class PreguntaController extends Controller
 
         $pregunta->update($request->all());
 
-        return redirect()->route('admin.preguntas.index')
+        return redirect()->route('preguntas.index')
             ->with('success', 'Pregunta editada exitosamente');
     }
 
@@ -95,9 +96,40 @@ class PreguntaController extends Controller
      */
     public function destroy($id)
     {
-        $pregunta = Pregunta::find($id)->delete();
+        $pregunta = Pregunta::find($id);
+        if ($pregunta) {
+            $pregunta->delete();
+           
+            session()->flash('success', 'Pregunta eliminada exitosamente');
+        }
 
-        return redirect()->route('admin.preguntas.index')
-            ->with('success', 'Pregunta eliminada exitosamente');
+        // Redirigimos al CRUD de preguntas
+        return redirect()->route('preguntas.index');
     }
+
+
+
+    public function procesarFormulario(Request $request)
+    {
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'preguntas' => 'required|string|max:1000',
+        ]);
+
+        Pregunta::create([
+            'nombre' => $request->nombre,
+            'email' => $request->email,
+            'preguntas' => $request->preguntas,
+            'respondida' => false, 
+        ]);
+
+        
+        $request->session()->flash('success', 'Gracias por tu mensaje. Te responderemos pronto.');
+
+       
+        return back();
+    }
+
+
 }
