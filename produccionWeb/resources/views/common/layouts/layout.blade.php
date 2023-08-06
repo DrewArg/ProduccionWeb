@@ -85,6 +85,7 @@
                                                      document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
+                    <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
                     <a href="{{URL::route('admin_index')}}" class="nav-link" >ADMIN</a>
 
                 @endguest
