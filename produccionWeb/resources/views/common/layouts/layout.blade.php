@@ -19,6 +19,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/app.css'])
@@ -74,53 +76,30 @@
             </div>
 
 
-            <div class="align-item-center">
+            <div class="d-flex justify-content-center">
                 @guest
-
-                    <p class="">
-
-                        @if (Route::has('register'))
-                            <a class="nav-link d-inline"
-                               href="{{ URL::route('register') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
-                        @endif
-                            <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
-                    </p>
-
+                    <a class="nav-link px-3"href="{{ URL::route('login') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
                 @else
-
-                    <ul>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                               data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ URL::route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-                                <a href="{{URL::route('admin_index')}}" class="nav-link" >ADMIN</a>
-
-                                <form id="logout-form" action="{{ URL::route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                    <a class="dropdown-item" href="{{ URL::route('logout') }}" onclick="event.preventDefault();                                                document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <a href="{{URL::route('carrito_index')}}" class="nav-link col-6 d-flex justify-content-center"><i class="fa-solid fa-cart-plus fa-2x align-self-center"></i></a>
+                    
 
 
-                    </ul>
+
+
+                                        @if(auth()->user()->tipo_usuario === 1)
+                        <a href="{{ route('admin_index') }}" class="nav-link">ADMIN</a>
+                    @else
+                        <p class="fs-6">{{ auth()->user()->nombre }}</p>
+                    @endif
 
                 @endguest
 
 
-                <div class="d-flex justify-content-center">
-
-
-
-
-                </div>
+              
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

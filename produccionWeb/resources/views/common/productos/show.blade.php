@@ -18,17 +18,17 @@
                                 </div>
                                 <div class="col-6 mb-3">
 
-                                    <select class="form-select mb-3" aria-label="Default select example">
+                                    <select class="form-select mb-3" id="tipoProducto{{$producto->id}}" aria-label="Default select example">
                                         <option selected>Formato</option>
-                                        <option value="1">Fisico</option>
-                                        <option value="2">Digital</option>
+                                        <option value="fisico">Fisico</option>
+                                        <option value="digital">Digital</option>
                                     </select>
 
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" id="cantidadProducto{{$producto->id}}" aria-label="Default select example">
                                         <option selected>Cantidad</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
-                                    </select>
+                                    </select
 
                                 </div>
                                 <div class="col-6 mb-3">
@@ -42,14 +42,10 @@
                                     </ul>
                                 </div>
 
+                                    <div class="col-6 mb-3 d-flex justify-content-center">
+                                        <button class="btn bg-info align-self-end" onclick="agregarAlCarrito({{ $producto->id }})">Agregar al Carrito</button>
+                                    </div>
 
-
-                                <div class="col-6 mb-3 d-flex justify-content-center">
-
-                                <a href="" class="btn bg-info align-self-end">Agregar al Carrito</a>  
-
-                                </div>
-                             
                             </div>
                         </div>
                     </div>
@@ -57,4 +53,32 @@
             </div>
         </section>
     </article>
+
+    <script>
+        function agregarAlCarrito(productoId) {
+            let cantidad = $("#cantidadProducto" + productoId).val();
+            let tipo = $("#tipoProducto" + productoId).val();
+
+            console.log(cantidad)
+            console.log(tipo)
+
+            $.ajax({
+                url: '{{ route('carrito.agregar') }}',
+                method: 'POST',
+                data: {
+                    producto_id: productoId,
+                    cantidad: cantidad,
+                    tipo: tipo,
+                    _token: '{{ csrf_token() }}'
+                },
+                success: function (response) {
+                    alert('Producto agregado al carrito correctamente.');
+                },
+                error: function (error) {
+                    alert('Error al agregar el producto al carrito.');
+                }
+            });
+        }
+    </script>
+
 @endsection

@@ -47,8 +47,22 @@ class UsuarioController extends Controller
 
         $usuario = Usuario::create($request->all());
 
-        return redirect()->route('usuarios.index')
-            ->with('success', 'Usuario creado exitosamente.');
+
+
+
+       $usuario = new Usuario([
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
+            'email' => $request->email,
+            'password' => $request->clave,
+            'id_carrito' => $carrito->id,
+           'telefono'=>$request->telefono,
+           'direccion'=>$request->direccion
+        ]);
+
+        $usuario->save();
+
+        return redirect()->route('usuarios.index')->with('success', 'Usuario creado con éxito');
     }
 
     /**
