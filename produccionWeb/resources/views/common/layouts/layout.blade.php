@@ -35,13 +35,7 @@
         <div class="container">
 
             <a class="navbar-brand fs-1 text-center" href="/">Book Zone</a>
-
-
             <div class="">
-
-
-
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -85,12 +79,8 @@
                         {{ __('Logout') }}
                     </a>
                     <a href="{{URL::route('carrito_index')}}" class="nav-link col-6 d-flex justify-content-center"><i class="fa-solid fa-cart-plus fa-2x align-self-center"></i></a>
-                    
 
-
-
-
-                                        @if(auth()->user()->tipo_usuario === 1)
+                    @if(auth()->user()->tipo_usuario === 1)
                         <a href="{{ route('admin_index') }}" class="nav-link">ADMIN</a>
                     @else
                         <p class="fs-6">{{ auth()->user()->nombre }}</p>
@@ -98,8 +88,6 @@
 
                 @endguest
 
-
-              
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
