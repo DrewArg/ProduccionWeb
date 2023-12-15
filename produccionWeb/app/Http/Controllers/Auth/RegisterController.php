@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Carrito;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
-use App\Models\Usuario;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -44,7 +44,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'nombre' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:usuarios'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -53,7 +53,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Models\Usuario
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
@@ -61,7 +61,7 @@ class RegisterController extends Controller
         $carrito = new Carrito();
         $carrito->save();
 
-        $user = new Usuario();
+        $user = new User();
         $user->nombre = $data['nombre'];
         $user->apellido = $data['apellido'];
         $user->email = $data['email'];

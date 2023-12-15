@@ -17,9 +17,9 @@
             {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('clave') }}
-            {{ Form::text('clave', $usuario->clave, ['class' => 'form-control' . ($errors->has('clave') ? ' is-invalid' : ''), 'placeholder' => 'Clave']) }}
-            {!! $errors->first('clave', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('password') }}
+            {{ Form::text('password', $usuario->password, ['class' => 'form-control' . ($errors->has('password') ? ' is-invalid' : ''), 'placeholder' => 'Clave']) }}
+            {!! $errors->first('password', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('direccion') }}

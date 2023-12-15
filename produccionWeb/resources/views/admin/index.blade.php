@@ -15,7 +15,7 @@
         <p class="card-text">Aquí puedes gestionar los usuarios, revisiones, preguntas.</p>
         <ul>
         <li><a class="nav-link fs-6" href="{{URL::route('productos.admin_index')}}">Productos</a></li>
-        <li><a class="nav-link fs-6" href="{{URL::route('usuarios.index')}}">Usuarios</a></li>
+        <li><a class="nav-link fs-6" href="{{URL::route('users.index')}}">Usuarios</a></li>
         <li><a class="nav-link fs-6" href="{{URL::route('revisiones.index')}}">Revisiones</a></li>
         <li><a class="nav-link fs-6" href="{{URL::route('preguntas.index')}}">Preguntas</a></li>
     </ul>

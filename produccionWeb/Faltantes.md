@@ -8,6 +8,7 @@
 
 ### Usuario
 - actualizar la vista para que se vea como el commit anterior
+- validacion de que el mail ya existe en la db
 
 ## Book Zone Main
 

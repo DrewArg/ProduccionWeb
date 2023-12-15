@@ -12,10 +12,14 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     static $rules = [
-        'nombre' => 'required',
-        'apellido' => 'required',
-        'email' => 'required',
-        'clave' => 'required',
+      'nombre' => 'required',
+      		'apellido' => 'required',
+      		'email' => 'required',
+      		'password' => 'required',
+      		'direccion' => 'required',
+      		'telefono' => 'required',
+      		'tipo_usuario' => 'required',
+      		'id_carrito' => 'required',
     ];
 
     protected $perPage = 7;
@@ -25,12 +29,8 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'lastName',
-        'email',
-        'password',
-    ];
+     protected $fillable = ['nombre','apellido','email','password','direccion','telefono','tipo_usuario','id_carrito'];
+
 
     /**
      * The attributes that should be hidden for serialization.

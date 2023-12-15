@@ -3,26 +3,26 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'usuarios',
+        'passwords' => 'users',
     ],
 
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'usuarios',
+            'provider' => 'users',
         ],
     ],
 
     'providers' => [
-        'usuarios' => [
+        'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Usuario::class,
+            'model' => App\Models\User::class,
         ],
     ],
 
     'passwords' => [
-        'usuarios' => [
-            'provider' => 'usuarios',
+        'users' => [
+            'provider' => 'users',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,

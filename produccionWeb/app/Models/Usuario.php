@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $nombre
  * @property $apellido
  * @property $email
- * @property $clave
+ * @property $password
  * @property $direccion
  * @property $remember_token
  * @property $telefono
@@ -32,7 +32,7 @@ class Usuario extends Model
 		'nombre' => 'required',
 		'apellido' => 'required',
 		'email' => 'required',
-		'clave' => 'required',
+		'password' => 'required',
 		'direccion' => 'required',
 		'telefono' => 'required',
 		'tipo_usuario' => 'required',
@@ -46,7 +46,7 @@ class Usuario extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','apellido','email','clave','direccion','telefono','tipo_usuario','id_carrito'];
+    protected $fillable = ['nombre','apellido','email','password','direccion','telefono','tipo_usuario','id_carrito'];
 
 
     /**

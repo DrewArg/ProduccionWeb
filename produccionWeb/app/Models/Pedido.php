@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $updated_at
  *
  * @property Producto $producto
- * @property Usuario $usuario
+ * @property User $user
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -54,9 +54,9 @@ class Pedido extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function usuario()
+    public function user()
     {
-        return $this->hasOne('App\Models\Usuario', 'id', 'user_id');
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
     
 

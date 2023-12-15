@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.layouts.layout')
 
 @section('template_title')
     {{ $usuario->name ?? "{{ __('Show') Usuario" }}
@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Usuario</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('usuarios.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('users.index') }}"> {{ __('Back') }}</a>
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
                         </div>
                         <div class="form-group">
                             <strong>Clave:</strong>
-                            {{ $usuario->clave }}
+                            {{ $usuario->password }}
                         </div>
                         <div class="form-group">
                             <strong>Direccion:</strong>
