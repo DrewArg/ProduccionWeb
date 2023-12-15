@@ -24,6 +24,8 @@ class Usuario extends Authenticatable
         'id_carrito' => 'required',
     ];
 
+    
+
     protected $perPage = 20;
 
     /**
