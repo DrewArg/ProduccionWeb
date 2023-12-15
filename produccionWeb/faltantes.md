@@ -13,7 +13,10 @@
 - el id carrito se tendria que crear solo y asignarse cuando se crea un usuario
 - ver que el campo clave no existe en el crud usuarios
 
-## Crud productos
+## crud productos
+- funciona ok
+
+## Crud TODOS
 - separar un poco con margen los botones del formulario
 
 ## Crud revisiones
