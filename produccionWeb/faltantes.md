@@ -5,8 +5,8 @@
 ## Logout - andy
 - no funciono correctamente
 
-## Admin - fran
-- unificar las vistas del administrador 
+## Admin - fran (check)
+- unificar las vistas del administrador (Listo)
 
 ## Crud usuarios 
 - la clave se tendria que poenr con asteriscos - pablo
