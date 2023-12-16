@@ -24,11 +24,11 @@ new User()
 - separar un poco con margen los botones del formulario
 
 ## Crud revisiones - pablo
-- Route [admin.revisiones.index] not defined. 
+- Route [admin.revisiones.index] not defined. (Listo)
 - tira el error de arriba al crear una nueva revision
 
-## Crud preguntas - fran
-- respondida deberia ser un booleano o un 0/1
+## Crud preguntas - fran (check)
+- respondida deberia ser un booleano o un 0/1 (listo)
 - funciona ok el crud
 
 ## Crear revisiones y preguntas desde la vista detalle de producto

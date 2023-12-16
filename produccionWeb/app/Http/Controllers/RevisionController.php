@@ -44,7 +44,7 @@ class RevisionController extends Controller
 
         $revision = Revision::create($request->all());
 
-        return redirect()->route('admin.revisiones.index')
+        return redirect()->route('revisiones.index')
             ->with('success', 'Revision creada exitosamente.');
     }
 
@@ -84,7 +84,7 @@ class RevisionController extends Controller
 
         $revision->update($request->all());
 
-        return redirect()->route('admin.revisiones.index')
+        return redirect()->route('revisiones.index')
             ->with('success', 'Revision editada exitosamente');
     }
 
@@ -96,7 +96,7 @@ class RevisionController extends Controller
     {
         $revision = Revision::find($id)->delete();
 
-        return redirect()->route('admin.revisiones.index')
+        return redirect()->route('revisiones.index')
             ->with('success', 'Revision eliminada exitosamente');
     }
 }
