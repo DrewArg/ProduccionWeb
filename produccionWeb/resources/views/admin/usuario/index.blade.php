@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('admin.layouts.layout')
 
 @section('template_title')
     Usuario
 @endsection
 
-@section('content')
+@section('contents')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">

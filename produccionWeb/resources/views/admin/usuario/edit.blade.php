@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('admin.layouts.layout')
 
 @section('template_title')
     {{ __('Update') }} Usuario
 @endsection
 
-@section('content')
+@section('contents')
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
