@@ -24,7 +24,7 @@ class Usuario extends Authenticatable
         'id_carrito' => 'required',
     ];
 
-    
+
 
     protected $perPage = 20;
 
@@ -62,5 +62,10 @@ class Usuario extends Authenticatable
     public function getAuthIdentifierName()
     {
         return 'id';
+    }
+
+    public function carrito()
+    {
+        return $this->belongsTo(Carrito::class, 'id_carrito');
     }
 }
