@@ -12,11 +12,13 @@ class CarritoController extends Controller
     public function index()
     {
         $carrito = Carrito::find(1);
-
         $productos = $carrito->productos;
 
+        $total = $productos->sum('precio');
+
         return view('common.carrito.index', [
-            'productos' => $productos
+            'productos' => $productos,
+            'total' => $total,
         ]);
     }
 
@@ -29,10 +31,15 @@ class CarritoController extends Controller
         $carrito = Carrito::find(1);
 
         if ($carrito->productos->contains($productoId)) {
-            $carrito->productos()->updateExistingPivot($productoId, [
-                'cantidad' => $cantidad,
-                'tipo' => $tipo,
-            ]);
+            if ($tipo === 'sumar') {
+                $carrito->productos()->updateExistingPivot($productoId, [
+                    'cantidad' => DB::raw('cantidad + 1'), 
+                ]);
+            } elseif ($tipo === 'restar' && $cantidad > 1) {
+                $carrito->productos()->updateExistingPivot($productoId, [
+                    'cantidad' => DB::raw('cantidad - 1'), 
+                ]);
+            }
         } else {
             $carrito->productos()->attach($productoId, [
                 'cantidad' => $cantidad,
@@ -40,8 +47,14 @@ class CarritoController extends Controller
             ]);
         }
 
-        return response()->json(['message' => 'Producto agregado al carrito correctamente.']);
+        $productos = $carrito->productos;
+        $total = $productos->sum(function ($producto) {
+            return $producto->precio * $producto->pivot->cantidad;
+        });
+
+        return response()->json([
+            'message' => 'Producto actualizado en el carrito.',
+            'total' => $total,
+        ]);
     }
-
-
 }
