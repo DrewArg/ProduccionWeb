@@ -42,16 +42,19 @@ class CarritoProductoController extends Controller
 
     public function eliminar($id)
     {
-        $productoEnCarrito = CarritoProducto::find($id);
+        $user = auth()->user();
+        $carritoProducto = new CarritoProducto();
+        $productoEnCarrito = $carritoProducto->productoExisteEnCarrito($user->carrito->id, $id);
 
         if (!$productoEnCarrito) {
             return response()->json(['message' => 'Producto no encontrado en el carrito'], 404);
         }
 
-        $productoEnCarrito->delete();
+        $carritoProducto->eliminarDelCarrito($user->carrito->id, $id);
 
         return response()->json(['message' => 'Producto eliminado del carrito correctamente']);
     }
+
 
     public function actualizarCantidad(Request $request)
     {

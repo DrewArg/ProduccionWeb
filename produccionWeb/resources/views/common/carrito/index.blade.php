@@ -68,7 +68,11 @@
                                             <td>{{ $producto->precio }}</td>
                                             <td>{{ $producto->pivot->cantidad * $producto->precio }}</td>
                                             <td>
-                                                <button class="btn btn-sm btn-danger">Eliminar</button>
+                                                <form id="eliminar-form-{{ $producto->id }}" class="eliminar-form" data-producto-id="{{ $producto->id }}" action="{{ route('carrito-producto.eliminar', ['id' => $producto->id]) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="btn btn-danger eliminar-btn">Eliminar</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -76,7 +80,7 @@
                                 </table>
                                 <div class="text-end">
                                     <h4>Total: <span id="total">$ {{ $total }}</span></h4>
-                                    <button class="btn btn-primary">Pagar</button>
+                                    <button id="pagarBtn" class="btn btn-primary">Pagar</button>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +90,49 @@
         </div>
     </div>
     <script>
+
+        function actualizarTotal() {
+            let nuevoTotalGeneral = 0;
+            $('tbody.table-group-divider tr').each(function() {
+                let precioTotalProducto = parseFloat($(this).find('td:nth-child(5)').text());
+                nuevoTotalGeneral += precioTotalProducto;
+            });
+            $('#total').text('$' + nuevoTotalGeneral.toFixed(2));
+        }
+
         $(document).ready(function() {
+            let token = $('meta[name="csrf-token"]').attr('content');
+
+            $('#pagarBtn').click(function() {
+                alert('¡Gracias por usar esta demo de pago!');
+            });
+
+            $('.eliminar-btn').click(function(e) {
+                e.preventDefault();
+                let productoId = $(this).closest('.eliminar-form').data('producto-id');
+
+                $.ajax({
+                    url: '/carrito-producto/' + productoId,
+                    method: 'DELETE',
+                    data: {
+                        _token: token
+                    },
+                    success: function(response) {
+                        $('#eliminar-form-' + productoId).closest('tr').remove();
+                        actualizarTotal();
+
+                        if ($('tbody.table-group-divider tr').length === 0) {
+                            $('#accordionExample').html('<p>El carrito está vacío actualmente.</p>');
+                        }
+
+                        console.log(response.message);
+                    },
+                    error: function(error) {
+                        console.error(error);
+                    }
+                });
+            });
+
             $('.btn-outline-secondary').click(function() {
                 let productoId = $(this).data('producto-id');
                 let tipo = $(this).data('tipo');
@@ -120,9 +166,6 @@
 
                 $('#total').text('$' + nuevoTotalGeneral.toFixed(2));
 
-                let token = $('meta[name="csrf-token"]').attr('content');
-
-
                 $.ajax({
                     url: '/actualizar-cantidad-producto',
                     method: 'POST',
@@ -132,15 +175,14 @@
                         _token: token
                     },
                     success: function(response) {
-                       console.log(response)
+                        console.log(response);
                     },
                     error: function(error) {
-                        console.error(error)
+                        console.error(error);
                     }
                 });
-
             });
         });
-
     </script>
+
 @endsection

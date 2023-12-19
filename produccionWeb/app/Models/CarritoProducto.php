@@ -26,5 +26,24 @@ class CarritoProducto extends Model
         return $this->belongsTo(Producto::class);
     }
 
+    public function getProductosEnCarrito($carritoId)
+    {
+        return CarritoProducto::where('carrito_id', $carritoId)->with('producto')->get();
+    }
+
+    public static function productoExisteEnCarrito($carritoId, $productoId)
+    {
+        return CarritoProducto::where('carrito_id', $carritoId)
+            ->where('producto_id', $productoId)
+            ->exists();
+    }
+
+    public function eliminarDelCarrito($carritoId, $productoId)
+    {
+        CarritoProducto::where('carrito_id', $carritoId)
+            ->where('producto_id', $productoId)
+            ->delete();
+    }
+
 
 }
