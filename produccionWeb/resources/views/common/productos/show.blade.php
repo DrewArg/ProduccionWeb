@@ -52,6 +52,66 @@
                 </div>
             </div>
         </section>
+
+
+    <section>
+
+
+    <div class="container mt-5">
+    <h2>Formulario de Revisión de Libro</h2>
+    
+    <form>
+        <!-- Descripción -->
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Escribe tu revisión aquí..."></textarea>
+        </div>
+
+        <!-- Puntuación -->
+        <div class="form-group">
+            <label for="puntuacion">Puntuación:</label>
+            <select class="form-control" id="puntuacion" name="puntuacion">
+                <option value="5">5 - Excelente</option>
+                <option value="4">4 - Muy Bueno</option>
+                <option value="3">3 - Bueno</option>
+                <option value="2">2 - Regular</option>
+                <option value="1">1 - Malo</option>
+            </select>
+        </div>
+
+        <!-- Botón de Envío -->
+        <button type="submit" class="btn btn-primary mt-2">Enviar Revisión</button>
+    </form>
+</div>
+    </section>
+
+
+<section>
+
+<div class="container mt-5">
+    <h2>Revisión de Libro</h2>
+
+    <!-- Ejemplo de revisión -->
+    <div class="card mt-3 col-3">
+        <div class="card-body">
+            <!-- Descripción -->
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod turpis eget efficitur bibendum.</p>
+            
+            <!-- Puntuación -->
+            <p class="card-text">Puntuación: 4 - Muy Bueno</p>
+
+            <!-- Información adicional (usuario, fecha, etc.) -->
+            <p class="card-text text-muted">Usuario: UsuarioEjemplo | Fecha: 2023-01-01</p>
+        </div>
+    </div>
+
+    <!-- Otros bloques de revisión aquí -->
+
+</div>
+
+
+</section>
+
     </article>
 
     <script>
