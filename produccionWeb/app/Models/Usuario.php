@@ -24,6 +24,10 @@ class Usuario extends Authenticatable
         'id_carrito' => 'required',
     ];
 
+    public function isAdmin()
+    {
+        return $this->tipo_usuario === 1; 
+    }
 
 
     protected $perPage = 20;

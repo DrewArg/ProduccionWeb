@@ -39,11 +39,14 @@ Route::get('/contacto', [ContactoController::class, 'index'])->name('contacto_in
 Route::get('/FAQ', [FAQController::class, 'index'])->name('FAQ_index');
 Route::get('/quienesSomos', [QuienesSomosController::class, 'index'])->name('quienesSomos_index');
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin_index');
-Route::resource('/admin/usuarios', UsuarioController::class);
-Route::get('/admin/productos', [ProductoController::class, 'admin_index'])->name('productos.admin_index');
-Route::resource('/admin/preguntas', PreguntaController::class);
-Route::resource('/admin/revisiones', RevisionController::class);
+Route::get('/admin', [AdminController::class, 'index'])
+    ->name('admin_index')
+    ->middleware(['auth', 'admin']);
+Route::resource('/admin/usuarios', UsuarioController::class)->middleware(['auth', 'admin']);;
+
+Route::get('/admin/productos', [ProductoController::class, 'admin_index'])->name('productos.admin_index')->middleware(['auth', 'admin']);;
+Route::resource('/admin/preguntas', PreguntaController::class)->middleware(['auth', 'admin']);;
+Route::resource('/admin/revisiones', RevisionController::class)->middleware(['auth', 'admin']);;
 Route::post('/contacto', [PreguntaController::class, 'procesarFormulario'])->name('contacto.procesar');
 Route::resource('pedidos', PedidoController::class);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

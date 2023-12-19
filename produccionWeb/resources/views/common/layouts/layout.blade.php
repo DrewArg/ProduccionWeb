@@ -80,26 +80,15 @@
                     @guest
                     <a class="nav-link px-3" href="{{ URL::route('login') }}"><i class="fa-solid fa-right-to-bracket"></i></a>
                     <a href="{{URL::route('carrito_index')}}" class="nav-link col-6"><i class="fa-solid fa-cart-plus fa-2x"></i></a>
-<<<<<<< HEAD
-                    @else
-                    <a class="dropdown-item" href="{{ URL::route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();" document.getElementById('logout-form').submit();">
-=======
                 @else
                     <a class="dropdown-item" href="{{ URL::route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">                                              
->>>>>>> origin/pabloBranch
                         {{ __('Logout') }}
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-<<<<<<< HEAD
-                        @csrf
-                    </form>
-=======
                                         @csrf
                                     </form>
->>>>>>> origin/pabloBranch
                     <a href="{{URL::route('carrito_index')}}" class="nav-link col-6 d-flex justify-content-center"><i class="fa-solid fa-cart-plus fa-2x align-self-center"></i></a>
 
 

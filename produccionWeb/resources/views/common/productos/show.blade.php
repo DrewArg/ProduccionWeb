@@ -49,10 +49,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-    </section>
-</article>
-=======
         </section>
 
 
@@ -115,7 +111,6 @@
 </section>
 
     </article>
->>>>>>> origin/pabloBranch
 
 <script>
     function agregarAlCarrito(productoId) {
