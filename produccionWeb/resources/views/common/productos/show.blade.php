@@ -28,7 +28,7 @@
                                     <option selected>Cantidad</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
-                                </select </div>
+                                </select> </div>
                                 <div class="col-6 mb-3">
 
                                     <hr>
@@ -58,17 +58,19 @@
    <div class="container mt-5">
        <h2>Deja una revisión</h2>
 
-<form method="POST" action="{{ route('revisiones.store') }}" role="form" enctype="multipart/form-data">
+       <form method="POST" action="{{ route('revisiones.storeFromUser', ['id' => $producto->id]) }}" role="form" enctype="multipart/form-data">
     @csrf
 
     <input type="hidden" name="producto_id" value="{{ $producto->id }}">
 
     <div class="form-group">
-         <input hidden="true" type="text" class="form-control" id="producto_id" name="producto_id" value="{{ $producto->id }}" readonly>
+        <label hidden="hidden" for="producto_id">Producto ID:</label>
+        <input hidden="hidden" type="text" class="form-control" id="producto_id" name="producto_id" value="{{ $producto->id }}" readonly>
     </div>
 
     <div class="form-group">
-        <input hidden="true" type="text" class="form-control" id="user_id" name="user_id" value="{{ Auth::id() }}" readonly>
+        <label hidden="hidden" for="user_id">Usuario ID:</label>
+        <input hidden="hidden" type="text" class="form-control" id="user_id" name="user_id" value="{{ Auth::id() }}" readonly>
     </div>
 
     <div class="form-group">
@@ -84,7 +86,7 @@
 
     <div class="form-group">
         <label for="descripcion">Descripción:</label>
-        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Escribe tu revisión aquí..."></textarea>
+        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Dejá tu revision acá..."></textarea>
     </div>
 
     <button type="submit" class="btn btn-primary mt-2">{{ __('Enviar Revisión') }}</button>
@@ -96,25 +98,33 @@
     </section>
 
 
-<section>
-    <div class="container mt-5">
-        <h2>Revisiones de usuarios</h2>
-        @if($revisiones->isNotEmpty())
-            @foreach($revisiones as $revision)
-                <div class="card mt-3 col-3">
-                    <div class="card-body">
-                        <p class="card-text">{{ $revision->descripcion }}</p>
-                        <p class="card-text">Puntuación: {{ $revision->puntuacion }}</p>
-                        <p class="card-text text-muted">Usuario: {{ $revision->user->name }} | Fecha: {{ $revision->created_at }}</p>
-                    </div>
-                </div>
-            @endforeach
-        @else
-            <p>No hay revisiones disponibles.</p>
-        @endif
-    </div>
-</section>
-    </article>
+    <section>
+        <div class="container mt-5">
+            <h2>Revisiones de usuarios</h2>
+            <div class="row">
+                @if($producto->revisions->isNotEmpty())
+                    @foreach($producto->revisions as $revision)
+                        <div class="col-12 col-md-6 col-lg-4 mb-3">
+                            <div class="card revision-card">
+                                <div class="card-body">
+                                    @for ($i = 0; $i < $revision->puntuacion; $i++)
+                                        <i class="fa fa-star"></i>
+                                    @endfor
+                                    <p class="card-text">{{ $revision->descripcion }}</p>
+                                    <p class="card-text text-muted">{{ $revision->user->nombre }} | {{ $revision->created_at }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <p>No hay revisiones disponibles.</p>
+                @endif
+            </div>
+        </div>
+    </section>
+
+
+</article>
 
 <script>
     function agregarAlCarrito(productoId) {
@@ -131,12 +141,12 @@
                 _token: '{{ csrf_token() }}'
             },
             success: function(response) {
+                console.log(response)
                 alert('Producto agregado al carrito correctamente.');
             },
             error: function(xhr, status, error) {
-                var errorMessage = error || xhr.statusText; // Obtener el mensaje de error
-
-                alert('Error: ' + errorMessage);
+                let errorMessage = error || xhr.statusText;
+                console.error(errorMessage)
                 alert('Error al agregar el producto al carrito.');
             }
         });

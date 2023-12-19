@@ -33,12 +33,10 @@ class ProductoController extends Controller
 
     private function home_caratula()
     {
-        $caratula = DB::table('productos')
+        return DB::table('productos')
             ->where('es_activo',1)
             ->orderBy('updated_at', 'desc')
             ->first();
-
-        return $caratula;
     }
 
     public function home_destacados()
@@ -70,11 +68,10 @@ class ProductoController extends Controller
      public function show($id)
         {
             $producto = Producto::find($id);
-            $revisiones = $producto->latestRevisions(5);
+            $producto->load('revisions');
 
             return view('common.productos.show', [
-                'producto' => $producto,
-                'revisiones' => $revisiones,
+                'producto' => $producto
             ]);
         }
 

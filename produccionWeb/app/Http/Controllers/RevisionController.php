@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Producto;
 use App\Models\Revision;
 use Illuminate\Http\Request;
 
@@ -45,6 +46,26 @@ class RevisionController extends Controller
         $revision = Revision::create($request->all());
 
         return redirect()->route('revisiones.index')
+            ->with('success', 'Revision creada exitosamente.');
+    }
+
+    public function storeFromUser(Request $request, $id)
+    {
+
+        $producto = Producto::find($id);
+
+            if(!$producto){
+                return redirect()->route('productos.index')
+                    ->with('error', 'El producto no existe');
+            }
+
+        $request->validate(Revision::$rules);
+
+        $revision = Revision::create($request->all());
+
+        $producto->revisions()->save($revision);
+
+        return redirect()->route('productos.show',$id)
             ->with('success', 'Revision creada exitosamente.');
     }
 

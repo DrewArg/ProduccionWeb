@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Revision extends Model
 {
-    
+
     static $rules = [
 		'producto_id' => 'required',
 		'user_id' => 'required',
@@ -47,14 +47,14 @@ class Revision extends Model
     {
         return $this->hasOne('App\Models\Producto', 'id', 'producto_id');
     }
-    
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->hasOne('App\Models\User', 'id', 'user_id');
+        return $this->belongsTo(Usuario::class, 'user_id');
     }
-    
+
 
 }

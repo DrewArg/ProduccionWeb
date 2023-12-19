@@ -22,12 +22,33 @@
     font-weight: 500 !important
 }
 
+.revision-card {
+    position: relative;
+    min-height: 200px;
+    max-height: 200px;
+    overflow-x: auto;
+    padding-bottom: 40px;
+}
 
+.revision-card .card-body {
+    position: relative;
+}
 
+.revision-card .signature {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.revision-card .date {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
 
 .index__carousel {
     background-color: #EEEEEE;
-    margin: 0rem;
+    margin: 0;
 }
 
 .index__carousel__in {

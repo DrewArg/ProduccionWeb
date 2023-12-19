@@ -61,7 +61,7 @@ class Producto extends Model
 
     public function revisions()
     {
-        return $this->hasMany(Revision::class, 'producto_id', 'id');
+        return $this->hasMany(Revision::class);
     }
 
     public function latestRevisions($limit = 5)
