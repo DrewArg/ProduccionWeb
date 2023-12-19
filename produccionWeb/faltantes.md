@@ -25,7 +25,7 @@ new User()
 
 ## Crud revisiones - pablo
 - Route [admin.revisiones.index] not defined. (Listo)
-- tira el error de arriba al crear una nueva revision
+- tira el error de arriba al crear una nueva revision (arreglado)
 
 ## Crud preguntas - fran (check)
 - respondida deberia ser un booleano o un 0/1 (listo)
