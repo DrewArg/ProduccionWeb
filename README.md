@@ -23,12 +23,12 @@
 
 
 ## Instrucciones de uso
-  > 1. En una consola ejecutar `npm run dev`
-  > 2. En otra consola ejecutar `php artisan serve`
-  > 3. Abrir xamp y ejecutar `mySql` y `apache`
-  > 4. Abrir una tercer consola y ejecutar `php artisan migrate:fresh`
-  > 5. Para rellenar la tabla de productos, ejecutar `php artisan db:seed`
-  > 6. Aclaración: si desea acceder al <b>Panel de Administrador</b>, deberá crear una cuenta mediante el registro de <b>Book Zone</b>, luego acceder al `php my admin` y en la tabla `usuarios` cambiar el valor del registro necesitado en la columna `tipo_usuario` por <b>1</b>
+   1. En una consola ejecutar `npm run dev`
+   2. En otra consola ejecutar `php artisan serve`
+   3. Abrir xamp y ejecutar `mySql` y `apache`
+   4. Abrir una tercer consola y ejecutar `php artisan migrate:fresh`
+   5. Para rellenar la tabla de productos, ejecutar `php artisan db:seed`
+   6. Aclaración: si desea acceder al <b>Panel de Administrador</b>, deberá crear una cuenta mediante el registro de <b>Book Zone</b>, luego acceder al `php my admin` y en la tabla `usuarios` cambiar el valor del registro necesitado en la columna `tipo_usuario` por <b>1</b>
 
 
 
