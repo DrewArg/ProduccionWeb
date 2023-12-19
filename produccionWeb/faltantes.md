@@ -5,8 +5,8 @@
 ## Logout - andy
 - no funciono correctamente
 
-## Admin - fran
-- unificar las vistas del administrador 
+## Admin - fran (check)
+- unificar las vistas del administrador (Listo)
 
 ## Crud usuarios 
 - la clave se tendria que poenr con asteriscos - pablo
@@ -24,11 +24,11 @@ new User()
 - separar un poco con margen los botones del formulario
 
 ## Crud revisiones - pablo
-- Route [admin.revisiones.index] not defined. 
-- tira el error de arriba al crear una nueva revision
+- Route [admin.revisiones.index] not defined. (Listo)
+- tira el error de arriba al crear una nueva revision (arreglado)
 
-## Crud preguntas - fran
-- respondida deberia ser un booleano o un 0/1
+## Crud preguntas - fran (check)
+- respondida deberia ser un booleano o un 0/1 (listo)
 - funciona ok el crud
 
 ## Crear revisiones y preguntas desde la vista detalle de producto

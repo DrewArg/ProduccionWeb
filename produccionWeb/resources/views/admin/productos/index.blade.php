@@ -46,8 +46,11 @@
                     <a href="{{URL::route('productos.edit',$prod->id)}}">
                         <img class="edit-delete-icons" src="{{ URL::to('/') }}/iconos/edit.png"
                              alt="pencil to edit">
-
                     </a>
+
+                    a class="btn btn-sm btn-primary " href="{{ route('productos.show',$prod->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('detalles') }}</a>
+
+
                     <a href="{{URL::route('productos.destroy',$prod->id)}}" method="POST">
                         <img class="edit-delete-icons" src="{{ URL::to('/') }}/iconos/delete.png"
                              alt="trash can to delete">
@@ -121,9 +124,11 @@
                                     <td>{{ $prod->puntuacion }}</td>
                                     <td>{{ $prod->es_activo }}</td>
                                     <td class="acciones">
-                                        <a href="{{ URL::route('productos.edit', $prod->id) }}">
+                                        <a class="btn btn-sm btn-primary " href="{{ URL::route('productos.edit', $prod->id) }}">
                                             <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
                                         </a>
+                                        <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$prod->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('detalles') }}</a>
+                                        
                                         <form action="{{ URL::route('productos.destroy', $prod->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')

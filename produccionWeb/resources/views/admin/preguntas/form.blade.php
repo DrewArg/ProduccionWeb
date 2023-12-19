@@ -2,8 +2,15 @@
     <div class="box-body">
 
         <div class="form-group">
-            {{ Form::label('respondida') }}
-            {{ Form::text('respondida', $pregunta->respondida, ['class' => 'form-control' . ($errors->has('respondida') ? ' is-invalid' : ''), 'placeholder' => 'Respondida']) }}
+            {{ Form::label('respondida', '¿Respondida?') }}
+            <div>
+                <label class="radio-inline">
+                    {{ Form::radio('respondida', 1, $pregunta->respondida == 1) }} Sí
+                </label>
+                <label class="radio-inline">
+                    {{ Form::radio('respondida', 0, $pregunta->respondida == 0) }} No
+                </label>
+            </div>
             {!! $errors->first('respondida', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
