@@ -16,7 +16,7 @@
                         <span class="card-title">{{ __('Update') }} Revision</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ URL::route('admin.revisiones.update', $revision->id) }}" role="form"
+                        <form method="POST" action="{{ URL::route('revisiones.update', $revision->id) }}" role="form"
                               enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf

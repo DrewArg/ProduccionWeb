@@ -14,7 +14,7 @@
                             <span class="card-title">{{ __('Show') }} Revision</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ URL::route('admin.revisiones.index') }}"> {{ __('Volver') }}</a>
+                            <a class="btn btn-primary" href="{{ URL::route('revisiones.index') }}"> {{ __('Volver') }}</a>
                         </div>
                     </div>
 

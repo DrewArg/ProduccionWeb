@@ -2,42 +2,29 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
-/**
- * Class Usuario
- *
- * @property $id
- * @property $nombre
- * @property $apellido
- * @property $email
- * @property $clave
- * @property $direccion
- * @property $remember_token
- * @property $telefono
- * @property $tipo_usuario
- * @property $id_carrito
- * @property $created_at
- * @property $updated_at
- *
- * @property Pedido[] $pedidos
- * @property Revision[] $revisions
- * @package App
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
-    
+    use HasApiTokens, HasFactory, Notifiable;
+
+    //protected $table = 'usuario'; // Define el nombre de la tabla
+
     static $rules = [
-		'nombre' => 'required',
-		'apellido' => 'required',
-		'email' => 'required',
-		'clave' => 'required',
-		'direccion' => 'required',
-		'telefono' => 'required',
-		'tipo_usuario' => 'required',
-		'id_carrito' => 'required',
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'email' => 'required',
+        'clave' => 'required',
+        'direccion' => 'required',
+        'telefono' => 'required',
+        'tipo_usuario' => 'required',
+        'id_carrito' => 'required',
     ];
+
+
 
     protected $perPage = 20;
 
@@ -46,18 +33,23 @@ class Usuario extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','apellido','email','clave','direccion','telefono','tipo_usuario','id_carrito'];
-
+    protected $fillable = [
+        'nombre', 'apellido', 'email', 'password', 'direccion', 'telefono', 'tipo_usuario', 'id_carrito'
+    ];
 
     /**
+     * Relación con pedidos
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function pedidos()
     {
         return $this->hasMany('App\Models\Pedido', 'user_id', 'id');
     }
-    
+
     /**
+     * Relación con revisiones
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function revisions()
@@ -65,10 +57,15 @@ class Usuario extends Model
         return $this->hasMany('App\Models\Revision', 'user_id', 'id');
     }
 
+    // Otros métodos y propiedades relevantes para el modelo
+
     public function getAuthIdentifierName()
     {
-        return 'id'; 
+        return 'id';
     }
-    
 
+    public function carrito()
+    {
+        return $this->belongsTo(Carrito::class, 'id_carrito');
+    }
 }
