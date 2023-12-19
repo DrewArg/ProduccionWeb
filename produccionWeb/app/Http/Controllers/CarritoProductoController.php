@@ -42,21 +42,36 @@ class CarritoProductoController extends Controller
 
     public function eliminar($id)
     {
-        $usuario = Usuario::find(1);
+        $productoEnCarrito = CarritoProducto::find($id);
 
-        if (!$usuario) {
-            return response()->json(['message' => 'Usuario no encontrado'], 404);
+        if (!$productoEnCarrito) {
+            return response()->json(['message' => 'Producto no encontrado en el carrito'], 404);
         }
 
-        $carrito = $usuario->carrito;
-
-        if (!$carrito) {
-            return response()->json(['message' => 'Carrito no encontrado para este usuario'], 404);
-        }
-
-        $carrito->productos()->detach($id);
+        $productoEnCarrito->delete();
 
         return response()->json(['message' => 'Producto eliminado del carrito correctamente']);
-
     }
+
+    public function actualizarCantidad(Request $request)
+    {
+        $productoId = $request->input('producto_id');
+        $cantidad = $request->input('cantidad');
+
+        $user = auth()->user();
+        $carritoId = $user->carrito->id;
+
+        $carritoProducto = CarritoProducto::where('producto_id', $productoId)
+            ->where('carrito_id', $carritoId)
+            ->first();
+
+        if ($carritoProducto) {
+            $carritoProducto->cantidad = $cantidad;
+            $carritoProducto->save();
+            return response()->json(['message' => 'Cantidad actualizada correctamente'], 200);
+        }
+
+        return response()->json(['error' => 'No se pudo encontrar el producto en el carrito'], 404);
+    }
+
 }

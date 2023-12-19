@@ -58,6 +58,10 @@ Route::get('/carrito/{carritoId}', [CarritoController::class, 'mostrarCarrito'])
 //CarritoProducto
 Route::post('/carrito-producto/agregar', [CarritoProductoController::class, 'agregar'])->name('carrito-producto.agregar')->middleware('auth');
 Route::delete('/carrito-producto/{id}', [CarritoProductoController::class, 'eliminar'])->name('carrito-producto.eliminar')->middleware('auth');
+Route::post('/actualizar-cantidad-producto', [CarritoProductoController::class, 'actualizarCantidad'])
+    ->name('carrito-producto.actualizarCantidad')
+    ->middleware('auth');
+
 
 //Revisiones
 Route::post('/productos/{id}/revision', [RevisionController::class, 'storeFromUser'])

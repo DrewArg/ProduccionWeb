@@ -75,7 +75,7 @@
                                     </tbody>
                                 </table>
                                 <div class="text-end">
-                                    <h4>Total: <span>{{ $total }}</span></h4>
+                                    <h4>Total: <span id="total">$ {{ $total }}</span></h4>
                                     <button class="btn btn-primary">Pagar</button>
                                 </div>
                             </div>
@@ -85,4 +85,62 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('.btn-outline-secondary').click(function() {
+                let productoId = $(this).data('producto-id');
+                let tipo = $(this).data('tipo');
+                let cantidadElement = $(this).siblings('span.mx-2');
+                let precioElement = $(this).closest('tr').find('td:nth-child(4)');
+                let totalElement = $(this).closest('tr').find('td:nth-child(5)');
+
+                var cantidad = parseInt(cantidadElement.text());
+                var precio = parseFloat(precioElement.text());
+
+                if (tipo === 'sumar') {
+                    cantidad += 1;
+                } else if (tipo === 'restar' && cantidad > 1) {
+                    cantidad -= 1;
+                }
+
+                if (cantidad < 1) {
+                    cantidad = 1;
+                }
+
+                cantidadElement.text(cantidad);
+
+                let nuevoTotal = cantidad * precio;
+                totalElement.text(nuevoTotal.toFixed(2));
+
+                let nuevoTotalGeneral = 0;
+                $('tbody.table-group-divider tr').each(function() {
+                    let precioTotalProducto = parseFloat($(this).find('td:nth-child(5)').text());
+                    nuevoTotalGeneral += precioTotalProducto;
+                });
+
+                $('#total').text('$' + nuevoTotalGeneral.toFixed(2));
+
+                let token = $('meta[name="csrf-token"]').attr('content');
+
+
+                $.ajax({
+                    url: '/actualizar-cantidad-producto',
+                    method: 'POST',
+                    data: {
+                        producto_id: productoId,
+                        cantidad: cantidad,
+                        _token: token
+                    },
+                    success: function(response) {
+                       console.log(response)
+                    },
+                    error: function(error) {
+                        console.error(error)
+                    }
+                });
+
+            });
+        });
+
+    </script>
 @endsection

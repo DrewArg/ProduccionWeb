@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarritoProducto;
 use App\Models\Usuario;
 use App\Models\Carrito;
 use App\Models\Producto;
@@ -21,6 +22,12 @@ class CarritoController extends Controller
         $carrito = $usuario->carrito()->firstOrCreate([]);
 
         $productos = $carrito->productos;
+
+        foreach ($productos as $producto) {
+            info('ID del producto: ' . $producto->id);
+            info('Cantidad en carrito: ' . $producto->pivot->cantidad);
+        }
+
         $total = $productos->sum(function ($producto) {
             return $producto->precio * $producto->pivot->cantidad;
         });
@@ -31,6 +38,7 @@ class CarritoController extends Controller
             'total' => $total,
         ]);
     }
+
 
     public function agregarProducto(Request $request)
     {
@@ -87,5 +95,6 @@ class CarritoController extends Controller
             'total' => $total,
         ]);
     }
+
 
 }

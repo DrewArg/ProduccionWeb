@@ -9,7 +9,8 @@ class Carrito extends Model
 {
     public function productos()
     {
-        return $this->belongsToMany(Producto::class, 'carrito_producto', 'carrito_id', 'producto_id');
+        return $this->belongsToMany(Producto::class, 'carrito_producto', 'carrito_id', 'producto_id')
+            ->withPivot('cantidad');
     }
 
     public function usuario()
@@ -17,19 +18,9 @@ class Carrito extends Model
         return $this->belongsTo(Usuario::class);
     }
 
-    public function mostrarCarrito($carritoId)
+    public function carritoProducto()
     {
-
-        $carrito = Carrito::find($carritoId);
-
-        $productosEnCarrito = $carrito->productos;
-
-        $usuarioDelCarrito = $carrito->usuario;
-
-        return view('carrito', [
-            'carrito' => $carrito,
-            'productosEnCarrito' => $productosEnCarrito,
-            'usuarioDelCarrito' => $usuarioDelCarrito,
-        ]);
+        return $this->hasMany(CarritoProducto::class);
     }
+
 }
