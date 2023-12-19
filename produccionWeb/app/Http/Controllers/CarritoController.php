@@ -6,12 +6,13 @@ use App\Models\Usuario;
 use App\Models\Carrito;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CarritoController extends Controller
 {
     public function index()
     {
-        $usuario = Usuario::find(1);
+        $usuario = Auth::user();
 
         if (!$usuario) {
             return redirect()->route('login')->with('error', 'Usuario no encontrado');
@@ -33,7 +34,7 @@ class CarritoController extends Controller
 
     public function agregarProducto(Request $request)
     {
-        $usuario = Usuario::find(1);
+        $usuario = Auth::user();
 
         if (!$usuario) {
             return response()->json(['message' => 'Usuario no encontrado'], 404);
@@ -68,16 +69,23 @@ class CarritoController extends Controller
                 $carritoProducto->pivot->update(['cantidad' => $carritoProducto->pivot->cantidad - 1]);
             }
         } else {
-            $carrito->productos()->attach($productoId, ['cantidad' => $cantidad]);
+            $carrito->productos()->attach($productoId, [
+                'cantidad' => $cantidad,
+                'tipo' => $tipo
+            ]);
         }
 
         $total = $carrito->productos->sum(function ($producto) {
             return $producto->precio * $producto->pivot->cantidad;
         });
 
+        info('Producto agregado al carrito correctamente');
+
         return response()->json([
-            'message' => 'Producto actualizado en el carrito.',
+            'message' => 'Producto agregado al carrito correctamente',
+            'productos' => $carrito->productos,
             'total' => $total,
         ]);
     }
+
 }

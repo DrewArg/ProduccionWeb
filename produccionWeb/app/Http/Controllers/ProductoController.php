@@ -79,10 +79,11 @@ class ProductoController extends Controller
         {
             $request->validate(Producto::$rules);
 
-            Producto::create($request->all());
+            $producto = Producto::create($request->all());
 
             return redirect()->route('productos.admin_index')
-                ->with('success', 'Producto creado con éxito');
+                ->with('success', 'Producto creado con éxito')
+                ->with('producto', $producto);
         }
 
         public function update(Request $request, Producto $producto)

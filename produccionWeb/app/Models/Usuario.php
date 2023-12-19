@@ -11,13 +11,13 @@ class Usuario extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = 'usuarios'; // Define el nombre de la tabla
+    protected $table = 'usuarios';
 
     static $rules = [
         'nombre' => 'required',
         'apellido' => 'required',
         'email' => 'required',
-        //'password' => 'required',
+        'password' => 'required',
         'direccion' => 'required',
         'telefono' => 'required',
         'tipo_usuario' => 'required',
@@ -26,7 +26,7 @@ class Usuario extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->tipo_usuario === 1; 
+        return $this->tipo_usuario === 1;
     }
 
 
@@ -60,8 +60,6 @@ class Usuario extends Authenticatable
     {
         return $this->hasMany('App\Models\Revision', 'user_id', 'id');
     }
-
-    // Otros métodos y propiedades relevantes para el modelo
 
     public function getAuthIdentifierName()
     {

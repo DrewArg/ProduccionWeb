@@ -50,12 +50,14 @@ Route::resource('pedidos', PedidoController::class);
 Route::get('/carrito', [CarritoController::class, 'index'])
     ->name('carrito_index')
     ->middleware('auth');
-Route::post('/carrito/agregar', [CarritoController::class, 'agregarProducto'])->name('carrito.agregar');
-Route::get('/carrito/{carritoId}', [CarritoController::class, 'mostrarCarrito']);
+Route::post('/carrito/agregar-producto', [CarritoController::class, 'agregarProducto'])
+    ->name('carrito.agregarProducto')
+    ->middleware('auth');;
+Route::get('/carrito/{carritoId}', [CarritoController::class, 'mostrarCarrito'])->middleware('auth');
 
 //CarritoProducto
-Route::post('/carrito-producto/agregar', [CarritoProductoController::class, 'agregar'])->name('carrito-producto.agregar');
-Route::delete('/carrito-producto/{id}', [CarritoProductoController::class, 'eliminar'])->name('carrito-producto.eliminar');
+Route::post('/carrito-producto/agregar', [CarritoProductoController::class, 'agregar'])->name('carrito-producto.agregar')->middleware('auth');
+Route::delete('/carrito-producto/{id}', [CarritoProductoController::class, 'eliminar'])->name('carrito-producto.eliminar')->middleware('auth');
 
 //Revisiones
 Route::post('/productos/{id}/revision', [RevisionController::class, 'storeFromUser'])

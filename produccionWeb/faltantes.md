@@ -1,12 +1,5 @@
 ## Carrito - andy
-- agregar validacion para que si el usuario no está logueado, le pida registrarse/loguearse
 - hacer la vista completa para que no tenga datos de preuaba
-
-## Logout - andy
-- no funciono correctamente
-
-## Admin - fran (check)
-- unificar las vistas del administrador (Listo)
 
 ## Crud usuarios 
 - la clave se tendria que poenr con asteriscos - pablo
@@ -17,19 +10,7 @@ new User()
     Save user in db
 - ver que el campo clave no existe en el crud usuarios - pablo
 
-## crud productos
-- funciona ok
 
-## Crud TODOS - pablo
-- separar un poco con margen los botones del formulario
 
-## Crud revisiones - pablo
-- Route [admin.revisiones.index] not defined. (Listo)
-- tira el error de arriba al crear una nueva revision (arreglado)
 
-## Crud preguntas - fran (check)
-- respondida deberia ser un booleano o un 0/1 (listo)
-- funciona ok el crud
 
-## Crear revisiones y preguntas desde la vista detalle de producto
-- 

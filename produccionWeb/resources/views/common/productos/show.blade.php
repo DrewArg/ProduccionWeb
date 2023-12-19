@@ -131,8 +131,11 @@
         let cantidad = $("#cantidadProducto" + productoId).val();
         let tipo = $("#tipoProducto" + productoId).val();
 
+        console.log(cantidad)
+        console.log(tipo)
+
         $.ajax({
-            url: '{{ route("carrito.agregar") }}',
+            url: '{{ route("carrito.agregarProducto") }}',
             method: 'POST',
             data: {
                 producto_id: productoId,

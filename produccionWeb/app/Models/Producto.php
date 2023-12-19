@@ -64,11 +64,10 @@ class Producto extends Model
         return $this->hasMany(Revision::class);
     }
 
-    public function latestRevisions($limit = 5)
+    public function carritos()
     {
-        return $this->revisions()
-            ->orderBy('created_at', 'desc')
-            ->take($limit)
-            ->get();
+        return $this->belongsToMany(Carrito::class)
+            ->withPivot('cantidad')
+            ->withTimestamps();
     }
 }
