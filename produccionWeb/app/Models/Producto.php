@@ -58,4 +58,17 @@ class Producto extends Model
         'lenguaje',
         'es_activo'
     ];
+
+    public function revisions()
+    {
+        return $this->hasMany(Revision::class, 'producto_id', 'id');
+    }
+
+    public function latestRevisions($limit = 5)
+    {
+        return $this->revisions()
+            ->orderBy('created_at', 'desc')
+            ->take($limit)
+            ->get();
+    }
 }

@@ -55,61 +55,65 @@
     <section>
 
 
-    <div class="container mt-5">
-    <h2>Formulario de Revisión de Libro</h2>
-    
-    <form>
-        <!-- Descripción -->
-        <div class="form-group">
-            <label for="descripcion">Descripción:</label>
-            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Escribe tu revisión aquí..."></textarea>
-        </div>
+   <div class="container mt-5">
+       <h2>Deja una revisión</h2>
 
-        <!-- Puntuación -->
-        <div class="form-group">
-            <label for="puntuacion">Puntuación:</label>
-            <select class="form-control" id="puntuacion" name="puntuacion">
-                <option value="5">5 - Excelente</option>
-                <option value="4">4 - Muy Bueno</option>
-                <option value="3">3 - Bueno</option>
-                <option value="2">2 - Regular</option>
-                <option value="1">1 - Malo</option>
-            </select>
-        </div>
+<form method="POST" action="{{ route('revisiones.store') }}" role="form" enctype="multipart/form-data">
+    @csrf
 
-        <!-- Botón de Envío -->
-        <button type="submit" class="btn btn-primary mt-2">Enviar Revisión</button>
-    </form>
-</div>
+    <input type="hidden" name="producto_id" value="{{ $producto->id }}">
+
+    <div class="form-group">
+         <input hidden="true" type="text" class="form-control" id="producto_id" name="producto_id" value="{{ $producto->id }}" readonly>
+    </div>
+
+    <div class="form-group">
+        <input hidden="true" type="text" class="form-control" id="user_id" name="user_id" value="{{ Auth::id() }}" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="puntuacion">Puntuación:</label>
+        <select class="form-control" id="puntuacion" name="puntuacion">
+            <option value="5">5 - Excelente</option>
+            <option value="4">4 - Muy Bueno</option>
+            <option value="3">3 - Bueno</option>
+            <option value="2">2 - Regular</option>
+            <option value="1">1 - Malo</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="Escribe tu revisión aquí..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">{{ __('Enviar Revisión') }}</button>
+</form>
+
+
+
+   </div>
     </section>
 
 
 <section>
-
-<div class="container mt-5">
-    <h2>Revisión de Libro</h2>
-
-    <!-- Ejemplo de revisión -->
-    <div class="card mt-3 col-3">
-        <div class="card-body">
-            <!-- Descripción -->
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod turpis eget efficitur bibendum.</p>
-            
-            <!-- Puntuación -->
-            <p class="card-text">Puntuación: 4 - Muy Bueno</p>
-
-            <!-- Información adicional (usuario, fecha, etc.) -->
-            <p class="card-text text-muted">Usuario: UsuarioEjemplo | Fecha: 2023-01-01</p>
-        </div>
+    <div class="container mt-5">
+        <h2>Revisiones de usuarios</h2>
+        @if($revisiones->isNotEmpty())
+            @foreach($revisiones as $revision)
+                <div class="card mt-3 col-3">
+                    <div class="card-body">
+                        <p class="card-text">{{ $revision->descripcion }}</p>
+                        <p class="card-text">Puntuación: {{ $revision->puntuacion }}</p>
+                        <p class="card-text text-muted">Usuario: {{ $revision->user->name }} | Fecha: {{ $revision->created_at }}</p>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <p>No hay revisiones disponibles.</p>
+        @endif
     </div>
-
-    <!-- Otros bloques de revisión aquí -->
-
-</div>
-
-
 </section>
-
     </article>
 
 <script>

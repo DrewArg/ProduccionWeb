@@ -25,6 +25,9 @@ Route::get('/', [
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/productos', ProductoController::class);
+Route::post('/productos/{id}/revisar', [ProductoController::class, 'guardarRevision'])
+ ->name('productos.revisar')
+ ->middleware('auth');
 Route::resource('/pedidos', PedidoController::class);
 Route::get('/carrito', [CarritoController::class, 'index'])
     ->name('carrito_index')

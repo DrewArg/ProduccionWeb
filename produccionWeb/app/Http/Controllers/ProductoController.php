@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use App\Models\Revision;
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
@@ -64,62 +67,71 @@ class ProductoController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        request()->validate(Producto::$rules);
+     public function show($id)
+        {
+            $producto = Producto::find($id);
+            $revisiones = $producto->latestRevisions(5); // Obtener las últimas 5 revisiones para este producto
 
-        Producto::create($request->all());
+            return view('common.productos.show', [
+                'producto' => $producto,
+                'revisiones' => $revisiones,
+            ]);
+        }
 
-        return redirect()->route('productos.admin_index')
-            ->with('success', 'Producto creado con exito');
+        public function store(Request $request)
+        {
+            $request->validate(Producto::$rules);
+
+            Producto::create($request->all());
+
+            return redirect()->route('productos.admin_index')
+                ->with('success', 'Producto creado con éxito');
+        }
+
+        public function update(Request $request, Producto $producto)
+        {
+            $request->validate(Producto::$rules);
+
+            $producto->update($request->all());
+
+            return redirect()->route('productos.admin_index')
+                ->with('success', 'Producto actualizado con éxito');
+        }
+
+        public function destroy($id)
+        {
+            $producto = Producto::find($id);
+            $producto->delete();
+
+            return redirect()->route('productos.admin_index')
+                ->with('success', 'Producto eliminado con éxito');
+        }
+
+public function guardarRevision(Request $request, $id)
+{
+    $producto = Producto::find($id);
+
+    if (!$producto) {
+        return redirect()->route('productos.index')
+            ->with('error', 'El producto no existe');
     }
 
-    public function show($id)
-    {
-        $producto = Producto::find($id);
+    $request->validate(Revision::$rules);
 
-        return view('common.productos.show', [
-            'producto' => $producto
-        ]);
-    }
+    $revision = new Revision([
+        'producto_id' => $id,
+        'user_id' => Auth::id(),
+        'puntuacion' => $request->puntuacion,
+        'descripcion' => $request->descripcion,
+    ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        $producto = Producto::find($id);
-        return view('admin.productos.edit', [
-            'producto' => $producto
-        ]);
-    }
+    $producto->revisions()->save($revision);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Producto $producto)
-    {
-        request()->validate(Producto::$rules);
+    return redirect()->route('productos.show', $id)
+        ->with('success', 'Revisión creada exitosamente.');
+}
 
-        $producto->update($request->all());
 
-        return redirect()->route('productos.admin_index')
-            ->with('success', 'Producto actualizado con éxito');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        $producto = Producto::find($id)->delete();
-
-        return redirect()->route('productos.admin_index')
-            ->with('success', 'Producto eliminado con éxito');
-    }
 
 
 }
