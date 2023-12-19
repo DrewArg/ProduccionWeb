@@ -70,7 +70,7 @@ class ProductoController extends Controller
      public function show($id)
         {
             $producto = Producto::find($id);
-            $revisiones = $producto->latestRevisions(5); // Obtener las últimas 5 revisiones para este producto
+            $revisiones = $producto->latestRevisions(5);
 
             return view('common.productos.show', [
                 'producto' => $producto,
