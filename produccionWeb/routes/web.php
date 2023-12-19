@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\CarritoProductoController;
 use App\Http\Controllers\ContactoController;
@@ -45,4 +46,5 @@ Route::resource('/admin/preguntas', PreguntaController::class);
 Route::resource('/admin/revisiones', RevisionController::class);
 Route::post('/contacto', [PreguntaController::class, 'procesarFormulario'])->name('contacto.procesar');
 Route::resource('pedidos', PedidoController::class);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Auth::routes();
