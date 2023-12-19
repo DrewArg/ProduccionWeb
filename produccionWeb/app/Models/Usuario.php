@@ -11,13 +11,13 @@ class Usuario extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    //protected $table = 'usuario'; // Define el nombre de la tabla
+    protected $table = 'usuarios'; // Define el nombre de la tabla
 
     static $rules = [
         'nombre' => 'required',
         'apellido' => 'required',
         'email' => 'required',
-        'clave' => 'required',
+        //'password' => 'required',
         'direccion' => 'required',
         'telefono' => 'required',
         'tipo_usuario' => 'required',
