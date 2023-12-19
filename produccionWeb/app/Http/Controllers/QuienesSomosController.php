@@ -11,9 +11,7 @@ class QuienesSomosController extends Controller
 {
     public function index()
     {
-//       
         return view('common.quienesSomos.index', [
-//            
         ]);
     }
 

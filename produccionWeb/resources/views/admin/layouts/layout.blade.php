@@ -57,7 +57,6 @@
         @yield('contents')
     </main>
 
-    <!-- Font Awesome  -->
     <script src="https://kit.fontawesome.com/60be70fbe4.js" crossorigin="anonymous"></script>
 
 </body>

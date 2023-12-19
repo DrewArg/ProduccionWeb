@@ -103,7 +103,6 @@ class PreguntaController extends Controller
             session()->flash('success', 'Pregunta eliminada exitosamente');
         }
 
-        // Redirigimos al CRUD de preguntas
         return redirect()->route('preguntas.index');
     }
 
